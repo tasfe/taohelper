@@ -22,12 +22,12 @@ public class Preference extends BaseDO {
 		this.userNick = userNick;
 	}
 
-	public HashMap<Number, Integer> getReferenceMap() {
-		return referenceMap;
+	public HashMap<Number, Integer> getPreferenceMap() {
+		return preferenceMap;
 	}
 
-	public void setReferenceMap(HashMap<Number, Integer> referenceMap) {
-		this.referenceMap = referenceMap;
+	public void setPreferenceMap(HashMap<Number, Integer> preferenceMap) {
+		this.preferenceMap = preferenceMap;
 	}
 
 }
