@@ -8,5 +8,9 @@ package com.taoHelper.exception;
  *
  */
 public class DAOException extends Exception {
+	
+	public DAOException() throws Exception{
+		
+	}
 
 }
