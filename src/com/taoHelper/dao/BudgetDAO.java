@@ -28,20 +28,25 @@ public class BudgetDAO extends BaseDAO {
 			Statement stmt=con.createStatement();
 			String sql="select budget_num from budget where user_nick='"+user_nick+"' and (MONTH(NOW())-MONTH(timestamp)=0)";
 			ResultSet rs=stmt.executeQuery(sql);
+			int flag=0;
 			while(rs.next()){
-				double tmp_bud=rs.getDouble(1);
-				System.out.println(tmp_bud);
+				flag++;
 			}
-					
-			PreparedStatement ps = null;
-			ps=con.prepareStatement("insert into budget (user_nick, budget_num ,timestamp) values (?,?,?)");
-			ps.setString(1,user_nick);
-			ps.setDouble(2, limit);
-			ps.setTimestamp(3, new java.sql.Timestamp(System.currentTimeMillis()));
+			if(flag==0){
+				PreparedStatement ps = null;
+				ps=con.prepareStatement("insert into budget (user_nick, budget_num ,timestamp) values (?,?,?)");
+				ps.setString(1,user_nick);
+				ps.setDouble(2, limit);
+				ps.setTimestamp(3, new java.sql.Timestamp(System.currentTimeMillis()));
+				
+				ps.executeUpdate();
+				ps.close();
+				con.close();
+			}
+			else{
+				modifyBudget(user_nick,limit);
+			}
 			
-			ps.executeUpdate();
-			ps.close();
-			con.close();
 		}
 		catch(Exception e)
 		{
@@ -54,11 +59,13 @@ public class BudgetDAO extends BaseDAO {
 	}
 	/*
 	 * get the budget of current month
+	 * if the num is -1 means the user hasnot set any budget
 	 */
 	public Budget getBudget(String user_nick){
 		
 		Connection con=BaseDAO.getConnection();
 		Budget res_bug=new Budget();
+		res_bug.setBudget(-1);
 		try
 		{
 			Statement stmt=con.createStatement();
@@ -82,7 +89,7 @@ public class BudgetDAO extends BaseDAO {
 	/*
 	 * modify the budget of this month
 	 */
-	public boolean modifyBudget(String user_nick,double new_budget){
+	private boolean modifyBudget(String user_nick,double new_budget){
 		Connection con=BaseDAO.getConnection();
 		try
 		{
