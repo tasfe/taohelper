@@ -21,5 +21,4 @@ abstract class BaseTOPClient {
 	
 	protected String appKey = "test";
 	protected String appSecret = "test";
-
 }
