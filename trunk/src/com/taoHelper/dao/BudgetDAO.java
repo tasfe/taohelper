@@ -16,9 +16,9 @@ import com.taoHelper.exception.DAOException;
  */
 public class BudgetDAO extends BaseDAO {
 	
-	/*
-	 * create a budget record
-	 * 
+	/**
+	 * create a budget record of the current month
+	 * if there exists such a record then modify it
 	 */
 	public boolean createBudget(String user_nick,double limit){
 		Connection con=BaseDAO.getConnection();
@@ -57,7 +57,7 @@ public class BudgetDAO extends BaseDAO {
 		return true;
 		
 	}
-	/*
+	/**
 	 * get the budget of current month
 	 * if the num is -1 means the user hasnot set any budget
 	 */
@@ -86,7 +86,7 @@ public class BudgetDAO extends BaseDAO {
 		
 	}
 	
-	/*
+	/**
 	 * modify the budget of this month
 	 */
 	private boolean modifyBudget(String user_nick,double new_budget){
