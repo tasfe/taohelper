@@ -24,7 +24,7 @@ public class LogisticsTOPClient extends BaseTOPClient {
 	//查询某订单的物流信息
 	public LogisticsInfo getLogisticsInfoByTid(Number tid, String sellerNick){
 		
-		TaobaoClient client=new DefaultTaobaoClient(this.sandboxURl, this.appKey, this.appSecret);
+		TaobaoClient client=new DefaultTaobaoClient(this.onLineURL, this.appKey, this.appSecret);
 		LogisticsTraceSearchRequest req=new LogisticsTraceSearchRequest();
 		req.setTid(tid.longValue());
 		req.setSellerNick(sellerNick);
@@ -36,8 +36,7 @@ public class LogisticsTOPClient extends BaseTOPClient {
 					response.getCompanyName(), outSid);
 			return info;
 		} catch (ApiException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.error("taobao.itemats.get API调用错误", e);
 		}
 		return null;
 	}

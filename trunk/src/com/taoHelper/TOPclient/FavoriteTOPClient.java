@@ -22,35 +22,35 @@ public class FavoriteTOPClient extends BaseTOPClient {
 	private static String collectType = "ITEM";
 
 	/*
-	 * 目前沙箱不支持收藏夹功能，改代码在正式环境下测试通过
+	 * 鐩墠娌欑涓嶆敮鎸佹敹钘忓す鍔熻兘锛屾敼浠ｇ爜鍦ㄦ寮忕幆澧冧笅娴嬭瘯閫氳繃
 	 */
-	//查询收藏夹收藏的所有商品 先不查店铺
+	// 鏌ヨ鏀惰棌澶规敹钘忕殑鎵�湁鍟嗗搧 鍏堜笉鏌ュ簵閾�
 	public List<CollectItem> getFavoriteByUserNick(String userNick,
 			String sessionKey) {
-		
-		TaobaoClient client=new DefaultTaobaoClient(this.sandboxURl, this.appKey, this.appSecret);
-		FavoriteSearchRequest req=new FavoriteSearchRequest();
+
+		TaobaoClient client = new DefaultTaobaoClient(this.onLineURL,
+				this.appKey, this.appSecret);
+		FavoriteSearchRequest req = new FavoriteSearchRequest();
 		req.setUserNick(userNick);
 		req.setCollectType(collectType);
 		List<CollectItem> itemList = new ArrayList<CollectItem>();
 		try {
 			Long pageNum = 1L;
-			while(true){
+			while (true) {
 				req.setPageNo(pageNum);
-				FavoriteSearchResponse response = client.execute(req , sessionKey);
+				FavoriteSearchResponse response = client.execute(req,
+						sessionKey);
 				List<CollectItem> pageList = response.getCollectItems();
-				if(pageList != null)
+				if (pageList != null)
 					itemList.addAll(pageList);
-				else 
+				else
 					break;
 				pageNum++;
 			}
-			return itemList;
 		} catch (ApiException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.error("taobao.favorite.search API调用错误", e);
 		}
-		return null;
+		return itemList;
 	}
 
 }
