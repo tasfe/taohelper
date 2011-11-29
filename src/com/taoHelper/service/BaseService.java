@@ -5,6 +5,7 @@ package com.taoHelper.service;
 
 import org.apache.log4j.Logger;
 
+import com.taoHelper.TOPclient.AuthorizeTOPClient;
 import com.taoHelper.TOPclient.FavoriteTOPClient;
 import com.taoHelper.TOPclient.ItemCatTOPClient;
 import com.taoHelper.TOPclient.ItemTOPClient;
@@ -27,9 +28,12 @@ public abstract class BaseService {
 	protected static ItemCatTOPClient itemCatTopClient = new ItemCatTOPClient(); 
 	protected static FavoriteTOPClient favoriteTopClient = new FavoriteTOPClient();
 	protected static ShopTOPClient shopTopClient = new ShopTOPClient();
-	protected static LogisticsTOPClient logisticsTOPClient = new LogisticsTOPClient(); 
+	protected static LogisticsTOPClient logisticsTOPClient = new LogisticsTOPClient();
+	protected static AuthorizeTOPClient authoTOPClient = new AuthorizeTOPClient();
 	
 	protected static FavoriteItemDAO favoriteItemDAO = new FavoriteItemDAO();
 	protected static BudgetDAO budgetDAO = new BudgetDAO();
+	
+	
 	
 }
