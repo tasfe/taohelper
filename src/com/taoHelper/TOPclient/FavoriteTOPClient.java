@@ -22,13 +22,13 @@ public class FavoriteTOPClient extends BaseTOPClient {
 	private static String collectType = "ITEM";
 
 	/*
-	 * 鐩墠娌欑涓嶆敮鎸佹敹钘忓す鍔熻兘锛屾敼浠ｇ爜鍦ㄦ寮忕幆澧冧笅娴嬭瘯閫氳繃
+	 * 閻╊喖澧犲▽娆戭唸娑撳秵鏁幐浣规暪閽樺繐銇欓崝鐔诲厴閿涘本鏁兼禒锝囩垳閸︺劍顒滃蹇曞箚婢у啩绗呭ù瀣槸闁俺绻�
 	 */
-	// 鏌ヨ鏀惰棌澶规敹钘忕殑鎵�湁鍟嗗搧 鍏堜笉鏌ュ簵閾�
+	// 閺屻儴顕楅弨鎯版婢惰鏁归挊蹇曟畱閹碉拷婀侀崯鍡楁惂 閸忓牅绗夐弻銉ョ暗闁撅拷
 	public List<CollectItem> getFavoriteByUserNick(String userNick,
 			String sessionKey) {
 
-		TaobaoClient client = new DefaultTaobaoClient(this.onLineURL,
+		TaobaoClient client = new DefaultTaobaoClient(this.inUseURL,
 				this.appKey, this.appSecret);
 		FavoriteSearchRequest req = new FavoriteSearchRequest();
 		req.setUserNick(userNick);
@@ -48,7 +48,7 @@ public class FavoriteTOPClient extends BaseTOPClient {
 				pageNum++;
 			}
 		} catch (ApiException e) {
-			logger.error("taobao.favorite.search API调用错误", e);
+			logger.error("taobao.favorite.search API璋冪敤閿欒", e);
 		}
 		return itemList;
 	}

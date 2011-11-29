@@ -121,7 +121,7 @@ public class TradeService extends BaseService {
 			if(moneyInCat.get(cateName)==null){
 				moneyInCat.put(cateName, Double.valueOf(trade.getPayment()));
 			}else{
-				moneyInCat.put(cateName, moneyInCat.get(money)+Double.valueOf(trade.getPayment()));
+				moneyInCat.put(cateName, moneyInCat.get(cateName)+Double.valueOf(trade.getPayment()));
 			}
 		
 		}
