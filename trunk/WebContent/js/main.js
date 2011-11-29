@@ -3,17 +3,26 @@ var pMain={
 	sessionKey:"",
 	
 	init:function(){
-		if(userNick==""&&Cookie("userNick")==""){
-			
-			goAuthorize();
-			
-		}
 		
+		if(Cookie.getCookie("userNick")==""){		
+			goAuthorize();
+		}
+		else{
+			pMain.userNick = Cookie.getCookie("userNick");
+			pMain.sessionKey = Cookie.getCookie("sessionKey");
+			
+			//alert(Cookie.getCookie("userNick"));
+		}
+				
 	},
 	
 	goToHistory:function(){
-		
-		alert("history");
+		if(Cookie.getCookie("userNick")==""){		
+			goAuthorize();
+		}
+		else{
+			location.href="history.html";
+		}
 	}
 	
 };
