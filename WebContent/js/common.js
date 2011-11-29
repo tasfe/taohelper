@@ -7,9 +7,9 @@ Request = {
 };
 
 Cookie = {
-	addCookie:function(objName,objValue,objHours){//Ìí¼Ócookie
+	addCookie:function(objName,objValue,objHours){//ï¿½ï¿½ï¿½cookie
 	    var str = objName + "=" + escape(objValue);
-	    if(objHours > 0){//Îª0Ê±²»Éè¶¨¹ýÆÚÊ±¼ä£¬ä¯ÀÀÆ÷¹Ø±ÕÊ±cookie×Ô¶¯ÏûÊ§
+	    if(objHours > 0){//Îª0Ê±ï¿½ï¿½ï¿½è¶¨ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ä£¬ï¿½ï¿½ï¿½ï¿½ï¿½Ø±ï¿½Ê±cookieï¿½Ô¶ï¿½ï¿½ï¿½Ê§
 	     var date = new Date();
 	     var ms = objHours*3600*1000;
 	     date.setTime(date.getTime() + ms);
@@ -18,7 +18,7 @@ Cookie = {
 	    document.cookie = str;
  	},
 
-	getCookie:function(objName){//»ñÈ¡Ö¸¶¨Ãû³ÆµÄcookieµÄÖµ
+	getCookie:function(objName){//ï¿½ï¿½È¡Ö¸ï¿½ï¿½ï¿½ï¿½Æµï¿½cookieï¿½ï¿½Öµ
 	    var arrStr = document.cookie.split("; ");
 	    for(var i = 0;i < arrStr.length;i ++){
 	     var temp = arrStr[i].split("=");
@@ -27,13 +27,17 @@ Cookie = {
 	    return "";
 	},
 
-	 delCookie:function(name){//ÎªÁËÉ¾³ýÖ¸¶¨Ãû³ÆµÄcookie£¬¿ÉÒÔ½«Æä¹ýÆÚÊ±¼äÉè¶¨ÎªÒ»¸ö¹ýÈ¥µÄÊ±¼ä
+	 delCookie:function(name){//Îªï¿½ï¿½É¾ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½Æµï¿½cookieï¿½ï¿½ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½è¶¨ÎªÒ»ï¿½ï¿½ï¿½È¥ï¿½ï¿½Ê±ï¿½ï¿½
 		var date = new Date();
 		date.setTime(date.getTime() - 10000);
 		document.cookie = name + "=a; expires=" + date.toGMTString();
 	}
 };
 
+Constants = {
+	MSG_SUCCESS:"msg_success",
+	MSG_FAIL:"msg_fail"
+};
 
 function getdata(url, msg, callback){
     var xmlHttp;

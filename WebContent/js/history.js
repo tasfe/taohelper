@@ -14,15 +14,15 @@ var pHistory={
 	
 	drawPage:function(){
 		
-		if(pHistory.curpage==0){//½ğ¶îÍ³¼Æ
+		if(pHistory.curpage==0){//é‡‘é¢
 		
 			pHistory.goAmountStat();	
 		}
-		else if(pHistory.curpage == 1){//ÀàĞÍ·ÖÎö
+		else if(pHistory.curpage == 1){//ç±»åˆ«
 			
 			pHistory.goCategoryAnalysis();
 		}
-		else if(pHistory.curpage == 2){//Ïû·ÑÉÏÏŞÉè¶¨
+		else if(pHistory.curpage == 2){//é¢„ç®—
 			
 			pHistory.goSetConsumptionLimit();
 			
@@ -30,7 +30,7 @@ var pHistory={
 	},
 	
 	
-	//½ğ¶îÍ³¼Æ
+	//é‡‘é¢
 	goAmountStat:function(){
 		//Cookie.addCookie("sessionKey","4112931d4fc320a46ec32e06d6b0bcb1d59009AEHO2g6bb2903040751");
 		var msg="sessionKey="+Cookie.getCookie("sessionKey");
@@ -54,6 +54,7 @@ var pHistory={
 		
 	},
 	
+	//ç±»åˆ«
 	goCategoryAnalysis:function(){
 		$("th_chart_container").innerHTML="Loading graph....";
 		var msg="sessionKey="+Cookie.getCookie("sessionKey");
@@ -79,7 +80,7 @@ var pHistory={
 		
 	},
 	
-		
+	//é¢„ç®—	
 	goSetConsumptionLimit:function(){
 		var msg = "nick="+Cookie.getCookie("userNick")+"&method=getBudget";
 		getdata("budget",msg,function(xmlHttp){
@@ -89,12 +90,14 @@ var pHistory={
 				var jsonObj = myeval(res);
 				var tmphtml="";
 				if(jsonObj.budget==-1) {
-					tmphtml="<div>You havn't set your budget for this month yet!</div>";
-					tmphtml += "<div>Set here:"+"<input id='budget_input' type='text' style='width:200px;'/></div>";
-					tmphtml += "<div><input type='button' value='Commit' onclick='pHistory.submitBudget()'/></div>";
+					tmphtml="<div>æ‚¨å°šæœªä¸ºæœ¬æœˆè®¾ç½®é¢„ç®—ï¼</div>";
+					tmphtml += "<div>è®¾ç½®æœ¬æœˆé¢„ç®—:"+"<input id='budget_input' type='text' style='width:200px;'/></div>";
+					tmphtml += "<div><input type='button' value='æäº¤' onclick='pHistory.submitBudget()'/></div>";
 				}
 				else{
-					tmphtml="Set you limit here:";
+					tmphtml="<div>æ‚¨æœ¬æœˆçš„é¢„ç®—ä¸º: "+jsonObj.budget+"</div>";
+					tmphtml += "<div>è®¾ç½®æ–°çš„é¢„ç®—:"+"<input id='budget_input' type='text' style='width:200px;'/></div>";
+					tmphtml += "<div><input type='button' value='æäº¤' onclick='pHistory.submitBudget()'/></div>";
 				}
 				
 				$("th_chart_container").innerHTML = tmphtml;
@@ -109,9 +112,20 @@ var pHistory={
 	submitBudget:function(){
 		var budgetNum = $('budget_input').value;
 		if(isNaN(budgetNum)){
-			alert("ÇëÊäÈëºÏ·¨µÄÊı×Ö");
+			alert("è¯·è¾“å…¥åˆæ³•çš„æ•°å­—!");
 			return;
 		}
+		var msg = "nick="+Cookie.getCookie("userNick")+"&method=createBudget&limit="+budgetNum;
+		getdata("budget",msg,function(xmlHttp){
+			if(xmlHttp.readyState == 4 && xmlHttp.status == 200){
+				var res = xmlHttp.responseText;
+				if(res == Constants.MSG_SUCCESS){
+					alert("æˆåŠŸè®¾ç½®é¢„ç®—é¢åº¦!");
+					pHistory.goSetConsumptionLimit();
+				}
+				else alert("è®¾ç½®é¢åº¦å¤±è´¥!");
+			}
+		});
 	}
 };
 
