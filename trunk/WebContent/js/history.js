@@ -32,7 +32,7 @@ var pHistory={
 	
 	//金额统计
 	goAmountStat:function(){
-		//Cookie.addCookie("sessionKey","4112937d4fc320a46ec32e06d6b0bcb1d59009b290305NimzCoy40751");
+		//Cookie.addCookie("sessionKey","4112931d4fc320a46ec32e06d6b0bcb1d59009AEHO2g6bb2903040751");
 		var msg="sessionKey="+Cookie.getCookie("sessionKey");
 		getdata("moneyinmonth",msg,function(xmlHttp){
 			if(xmlHttp.readyState == 4 && xmlHttp.status ==200){
@@ -81,10 +81,37 @@ var pHistory={
 	
 		
 	goSetConsumptionLimit:function(){
+		var msg = "nick="+Cookie.getCookie("userNick")+"&method=getBudget";
+		getdata("budget",msg,function(xmlHttp){
+			if(xmlHttp.readyState == 4 && xmlHttp.status == 200){
+				var res = xmlHttp.responseText;
+				
+				var jsonObj = myeval(res);
+				var tmphtml="";
+				if(jsonObj.budget==-1) {
+					tmphtml="<div>You havn't set your budget for this month yet!</div>";
+					tmphtml += "<div>Set here:"+"<input id='budget_input' type='text' style='width:200px;'/></div>";
+					tmphtml += "<div><input type='button' value='Commit' onclick='pHistory.submitBudget()'/></div>";
+				}
+				else{
+					tmphtml="Set you limit here:";
+				}
+				
+				$("th_chart_container").innerHTML = tmphtml;
+			}
+			
+		});
 		
-		var tmphtml="Set you limit here:";
 		
-		$("th_chart_container").innerHTML = tmphtml;
+		//$("th_chart_container").innerHTML = tmphtml;
+	},
+	
+	submitBudget:function(){
+		var budgetNum = $('budget_input').value;
+		if(isNaN(budgetNum)){
+			alert("请输入合法的数字");
+			return;
+		}
 	}
 };
 
