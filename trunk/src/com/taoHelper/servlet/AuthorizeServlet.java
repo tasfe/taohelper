@@ -48,7 +48,7 @@ public class AuthorizeServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		String url = as.getAuthorizeURL();
 		if(url!=null) out.println(url);
-		else out.println(ServeletConstant.MSG_FAIL);
+		else out.print(ServeletConstant.MSG_FAIL);
 		
 		out.flush();
 		out.close();
