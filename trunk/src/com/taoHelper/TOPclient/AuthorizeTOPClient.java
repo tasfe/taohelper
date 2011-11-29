@@ -33,6 +33,7 @@ public class AuthorizeTOPClient extends BaseTOPClient {
 		}
 		return param.toString().substring(1);
 	}
+	
 	/*
 	* 获取app使用淘宝帐号登录URL
 	*/

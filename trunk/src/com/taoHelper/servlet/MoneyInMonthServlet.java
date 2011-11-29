@@ -1,11 +1,19 @@
 package com.taoHelper.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Map;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.json.JSONObject;
+
+import com.taoHelper.constants.ServeletConstant;
+import com.taoHelper.service.TradeService;
 
 /**
  * Servlet implementation class MoneyInMonthServlet
@@ -34,6 +42,21 @@ public class MoneyInMonthServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/plain");
+		PrintWriter out = response.getWriter();
+		
+		//String userNick = request.getParameter("nick");
+		String sessionKey = request.getParameter("session_key");
+		TradeService ts = new TradeService();
+		Map<Integer,Double> tmpMap = ts.getPaymentInMonth(sessionKey);
+		if(tmpMap != null){
+			JSONObject jo = new JSONObject(tmpMap);
+			out.println(jo.toString());
+		}
+		else out.println(ServeletConstant.MSG_FAIL);
+		out.flush();
+		out.close();
 	}
 
 }
