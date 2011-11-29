@@ -35,7 +35,7 @@ public class MoneyInMonthServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doPost(request,response);
+		//doPost(request,response);
 	}
 
 	/**
@@ -47,12 +47,11 @@ public class MoneyInMonthServlet extends HttpServlet {
 		response.setContentType("text/plain");
 		PrintWriter out = response.getWriter();
 		
-		//String userNick = request.getParameter("nick");
-		String sessionKey = request.getParameter("session_key");
+		String sessionKey = request.getParameter("sessionKey");
 		TradeService ts = new TradeService();
 		Map<Integer,Double> tmpMap = ts.getPaymentInMonth(sessionKey);
 		if(tmpMap != null){
-			JSONObject jo = new JSONObject(tmpMap);
+			JSONObject jo= new JSONObject(tmpMap);
 			out.println(jo.toString());
 		}
 		else out.println(ServeletConstant.MSG_FAIL);

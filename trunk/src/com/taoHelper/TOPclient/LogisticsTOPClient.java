@@ -24,7 +24,7 @@ public class LogisticsTOPClient extends BaseTOPClient {
 	//查询某订单的物流信息
 	public LogisticsInfo getLogisticsInfoByTid(Number tid, String sellerNick){
 		
-		TaobaoClient client=new DefaultTaobaoClient(this.onLineURL, this.appKey, this.appSecret);
+		TaobaoClient client=new DefaultTaobaoClient(this.inUseURL, this.appKey, this.appSecret);
 		LogisticsTraceSearchRequest req=new LogisticsTraceSearchRequest();
 		req.setTid(tid.longValue());
 		req.setSellerNick(sellerNick);

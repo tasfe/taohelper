@@ -31,7 +31,7 @@ public class TradeTOPClient extends BaseTOPClient {
 
 		
 		List<Trade> tradeList = new ArrayList<Trade>();
-		TaobaoClient client = new DefaultTaobaoClient(this.sandboxURl, appKey,
+		TaobaoClient client = new DefaultTaobaoClient(this.inUseURL, appKey,
 				appSecret);
 		TradesBoughtGetRequest req = new TradesBoughtGetRequest();
 		req.setFields("seller_nick,buyer_nick,title,tid,payment,post_fee,total_fee,end_time,pic_path,num_iid,num");

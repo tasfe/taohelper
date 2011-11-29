@@ -18,7 +18,7 @@ public class ItemTOPClient extends BaseTOPClient {
 
 	// 根据id查询商品详情
 	public Item getItemByIdNumId(Number numId) {
-		TaobaoClient client = new DefaultTaobaoClient(this.sandboxURl,
+		TaobaoClient client = new DefaultTaobaoClient(this.inUseURL,
 				this.appKey, this.appSecret);
 		ItemGetRequest req = new ItemGetRequest();
 		// 好多属性没有读取，如果需要可以继续添加。

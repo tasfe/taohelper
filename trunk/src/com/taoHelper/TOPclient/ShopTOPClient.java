@@ -27,7 +27,7 @@ public class ShopTOPClient extends BaseTOPClient {
 	//¸ù¾ÝsellerNick²éÑ¯µêÆÌ
 	public Shop getShopBySellerNick(String sellerNick){
 		
-		TaobaoClient client=new DefaultTaobaoClient(this.sandboxURl, this.appKey, this.appSecret);
+		TaobaoClient client=new DefaultTaobaoClient(this.inUseURL, this.appKey, this.appSecret);
 		ShopGetRequest req=new ShopGetRequest();
 		req.setFields("sid,cid,title,nick,desc,bulletin,pic_path,created,modified");
 		req.setNick(sellerNick);

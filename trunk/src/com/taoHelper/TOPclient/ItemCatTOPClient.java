@@ -21,7 +21,7 @@ public class ItemCatTOPClient extends BaseTOPClient {
 	// 查询商品父类目
 	// 传入的cid为商品的cid，方法中查询cid对应的parent_cid，然后返回parent_cid对应的ItemCat
 	public ItemCat getItemCatByCid(Number cid) {
-		TaobaoClient client = new DefaultTaobaoClient(this.sandboxURl,
+		TaobaoClient client = new DefaultTaobaoClient(this.inUseURL,
 				this.appKey, this.appSecret);
 		ItemcatsGetRequest req = new ItemcatsGetRequest();
 		req.setFields("cid,parent_cid,name,is_parent");
