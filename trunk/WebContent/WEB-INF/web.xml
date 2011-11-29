@@ -24,6 +24,12 @@
     <servlet-name>MoneyInMonth</servlet-name>
     <servlet-class>com.taoHelper.servlet.MoneyInMonthServlet</servlet-class>
   </servlet>
+  <servlet>
+    <description>MoneyInCat Servlet</description>
+    <display-name>MoneyInCat Servlet</display-name>
+    <servlet-name>MoneyInCat</servlet-name>
+    <servlet-class>com.taoHelper.servlet.MoneyInCatServlet</servlet-class>
+  </servlet>
   
   <servlet-mapping>
     <servlet-name>Budget</servlet-name>
@@ -40,5 +46,9 @@
     <servlet-mapping>
     <servlet-name>MoneyInMonth</servlet-name>
     <url-pattern>/moneyinmonth</url-pattern>
+  </servlet-mapping>
+   <servlet-mapping>
+    <servlet-name>MoneyInCat</servlet-name>
+    <url-pattern>/moneyincat</url-pattern>
   </servlet-mapping>
 </web-app>
