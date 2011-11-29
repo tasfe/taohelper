@@ -3,7 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
 <title>历史_类型分析</title>
-<script type="text/javascript" src="js/history.js"></script>
+
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/jscharts.js"></script>
+
+<link rel="stylesheet" href="style/main.css" type="text/css"/>
+
 <style type="text/css">
 #Layer1 {
 	position:absolute;
@@ -97,10 +102,10 @@ a:active {
 
 <body>
 <div id="Layer7">
-  <h1 align="center"><a href="taohelper收藏_宝贝收藏.html">类型分析</a></h1>
+  <h1 align="center"><a href="#" onclick="pHistory.goCategoryAnalysis()">类型分析</a></h1>
 </div>
 <div id="Layer6"> 
-  <h1 align="center"><a href="taohelper收藏_店铺收藏.html">金额统计</a></h1>
+  <h1 align="center"><a href="#" onclick="pHistory.goAmountStat()">金额统计</a></h1>
 </div>
 <div id="Layer5">
   <h1 align="center"><a href="taohelper推荐_商铺.html">推荐</a></h1>
@@ -115,11 +120,15 @@ a:active {
   <h1 align="center"><a href="taohelper当前_订单状态.html">当前</a></h1>
 </div>
 <div id="Layer1">
-  <h1 align="center"><a href="主页.html">主页</a></h1>
+  <h1 align="center"><a href="index.html">主页</a></h1>
 </div>
 <div id="Layer8">
-  <h1 align="center"> <a href="history.html">消费上限设置</a></h1>
+  <h1 align="center"> <a href="#" onclick="pHistory.goSetConsumptionLimit()">消费上限设置</a></h1>
 </div>
 <div id="Layer9"></div>
+
+<div id="upperpart_display"> </div>
+<div id="th_chart_container" class="chart_history">This is just a replacement in case Javascript is not available or used for SEO purposes</div>
+<script type="text/javascript" src="js/history.js"></script>
 </body>
 </html>
