@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" metadata-complete="true" version="3.0">
- 
- <servlet>
+  <servlet>
     <description>BudgetServelet</description>
     <display-name>BudgetServelet</display-name>
     <servlet-name>Budget</servlet-name>
@@ -13,15 +12,23 @@
     <servlet-name>FavoriteItem</servlet-name>
     <servlet-class>com.taoHelper.servlet.FavoriteItemServlet</servlet-class>
   </servlet>
+  <servlet>
+    <description>AuthorizeServelet</description>
+    <display-name>AuthorizeServelet</display-name>
+    <servlet-name>Authorize</servlet-name>
+    <servlet-class>com.taoHelper.servlet.AuthorizeServlet</servlet-class>
+  </servlet>
   
-   <servlet-mapping>
+  <servlet-mapping>
     <servlet-name>Budget</servlet-name>
     <url-pattern>/budget</url-pattern>
   </servlet-mapping>
-  
-   <servlet-mapping>
+  <servlet-mapping>
     <servlet-name>FavoriteItem</servlet-name>
     <url-pattern>/FavoriteItem</url-pattern>
   </servlet-mapping>
-
+  <servlet-mapping>
+    <servlet-name>Authorize</servlet-name>
+    <url-pattern>/authorize</url-pattern>
+  </servlet-mapping>
 </web-app>
