@@ -55,8 +55,8 @@ public class BudgetServlet extends HttpServlet {
 			String name = request.getParameter("nick");
 			double limit = Double.parseDouble(request.getParameter("limit"));
 						
-			if(bs.createBudget(name, limit)) out.println(ServeletConstant.MSG_SUCCESS);
-			else out.println(ServeletConstant.MSG_FAIL);		
+			if(bs.createBudget(name, limit)) out.print(ServeletConstant.MSG_SUCCESS);
+			else out.print(ServeletConstant.MSG_FAIL);		
 		}
 		else if(method.equals("getBudget")){
 			String name = request.getParameter("nick");

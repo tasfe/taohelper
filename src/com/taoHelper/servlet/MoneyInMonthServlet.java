@@ -54,7 +54,7 @@ public class MoneyInMonthServlet extends HttpServlet {
 			JSONObject jo= new JSONObject(tmpMap);
 			out.println(jo.toString());
 		}
-		else out.println(ServeletConstant.MSG_FAIL);
+		else out.print(ServeletConstant.MSG_FAIL);
 		out.flush();
 		out.close();
 	}
