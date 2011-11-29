@@ -81,7 +81,7 @@ public class TradeService extends BaseService {
 			if(moneyInMonth.get(month)==null){
 				moneyInMonth.put(month, Double.valueOf(trade.getPayment()));
 			}else{
-				moneyInMonth.put(month, moneyInMonth.get(money)+Double.valueOf(trade.getPayment()));
+				moneyInMonth.put(month, moneyInMonth.get(month)+Double.valueOf(trade.getPayment()));
 			}
 		
 			
