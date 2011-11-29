@@ -8,8 +8,7 @@ import java.util.TreeMap;
 import java.util.Map.Entry;
 
 public class Util {
-	private static final char[] DIGITS = { '0', '1', '2', '3', '4', '5', '6',
-		'7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f' };
+	private static final char[] DIGITS = { '0', '1', '2', '3', '4', '5', '6','7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f' };
 	/**
 	* 对参数进行MD5
 	*

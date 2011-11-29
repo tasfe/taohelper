@@ -19,6 +19,6 @@ abstract class BaseTOPClient {
 	//online url
 	protected String onLineURL = "http://gw.api.taobao.com/router/rest";
 	
-	protected String appKey = "test";
-	protected String appSecret = "test";
+	protected String appKey = "12390550";
+	protected String appSecret = "05ba44f4751e847cc76ffd3977b0f0b7";
 }
