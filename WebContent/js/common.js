@@ -47,7 +47,7 @@ function getdata(url, msg, callback){
             callback(xmlHttp); 
         }
     };
-    xmlHttp.open("GET",url,true);
+    xmlHttp.open("POST",url,true);
     xmlHttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded;charset=utf-8");
     xmlHttp.send(msg);
 }
@@ -71,5 +71,9 @@ function goAuthorize(){
 			}
 		}
 	});
+}
 
+function getSessionKey(){
+	var url = "http://container.open.taobao.com/container?appkey=12390550&encode=utf-8";
+	window.open(url,"taobao-authorize","width=611,height=300");
 }

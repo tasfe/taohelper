@@ -32,18 +32,51 @@ var pHistory={
 	
 	//½ð¶îÍ³¼Æ
 	goAmountStat:function(){
+		//Cookie.addCookie("sessionKey","4112937d4fc320a46ec32e06d6b0bcb1d59009b290305NimzCoy40751");
+		var msg="sessionKey="+Cookie.getCookie("sessionKey");
+		getdata("moneyinmonth",msg,function(xmlHttp){
+			if(xmlHttp.readyState == 4 && xmlHttp.status ==200){
+				var res = xmlHttp.responseText;
+				var jsonObj = myeval(res);
+				
+				var moneyData = new Array();
+				for(var i=1;i<=12;i++){
+					if(jsonObj[i]){
+						moneyData.push([i,jsonObj[i]]);
+					}	
+				}
+				var myChart = new JSChart("th_chart_container", "line");
+				myChart.setDataArray(moneyData);
+				myChart.setSize(840,550);
+				myChart.draw();
+			}
+		});
 		
-		var myData = new Array([10, 20], [15, 10], [20, 30], [25, 10], [30, 5]);
-		var myChart = new JSChart("th_chart_container", "line");
-		myChart.setDataArray(myData);
-		myChart.draw();
 	},
 	
 	goCategoryAnalysis:function(){
-		var myData = new Array(['unit', 20], ['unit two', 10], ['unit three', 30],['other unit', 10], ['last unit', 30]);
-		var myChart = new JSChart("th_chart_container", "bar");
-		myChart.setDataArray(myData);
-		myChart.draw();
+		$("th_chart_container").innerHTML="Loading graph....";
+		var msg="sessionKey="+Cookie.getCookie("sessionKey");
+		getdata("moneyincat",msg,function(xmlHttp){
+			if(xmlHttp.readyState == 4 && xmlHttp.status ==200){
+				var res = xmlHttp.responseText;
+				var jsonObj = myeval(res);
+				
+				var catData = new Array();
+				for(var cat in jsonObj){
+					if(jsonObj[cat]){
+						
+						catData.push([cat,jsonObj[cat]]);
+					}
+				}
+				
+				var myChart = new JSChart("th_chart_container", "bar");
+				myChart.setDataArray(catData);
+				myChart.setSize(840,550);
+				myChart.draw();
+			}
+		});
+		
 	},
 	
 		

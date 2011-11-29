@@ -7,20 +7,6 @@
 </head>
 <body>
 <div id="msg_display" style="width:100%;text_align:center"></div>
-<script type="text/javascript">
-	var userNick = Request.QueryString("taobao_user_nick");
-	if(userNick&&userNick!=""){
-		Cookie.addCookie("userNick",userNick,0);
-		
-		var tmphtml = "<div>You have successfully been authorized!</div>'
-						+'<div onclick='self.close();'>Click here to close window</div>";
-		//alert("authorize successfully!");
-	}
-	var session = Request.QueryString("session");
-	if(session&&session!=""){
-		Cookie.addCookie("sessionKey",session,0);
-	}
-</script>
-
+<script type="text/javascript" src="js/callback.js"></script>
 </body>
 </html>
