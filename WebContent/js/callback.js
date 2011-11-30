@@ -3,8 +3,9 @@ if(userNick&&userNick!=""){
 	Cookie.addCookie("userNick",userNick,0);
 	
 	var tmphtml = "<div>You have successfully been authorized!</div>"
-					+"<div onclick='self.close();'>Click here to close window</div>";
+					+"<div style='width:100%;text-align:center'><div onclick='self.close();' class='button_div'>Close</div></div>";
 	//alert("authorize successfully!");
+	$("msg_display").innerHTML = tmphtml;
 }
 var session = Request.QueryString("session");
 if(session&&session!=""){
@@ -13,5 +14,5 @@ if(session&&session!=""){
 session = Request.QueryString("top_session");
 if(session && session!=""){
 	Cookie.addCookie("sessionKey",session,0);
-	//alert("session 获取成功!"+session);
+	//alert("session 锟斤拷取锟缴癸拷!"+session);
 }
