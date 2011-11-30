@@ -33,6 +33,8 @@ var pHistory={
 	//金额
 	goAmountStat:function(){
 		//Cookie.addCookie("sessionKey","4112931d4fc320a46ec32e06d6b0bcb1d59009AEHO2g6bb2903040751");
+		$("Layer6").style.background="url('img/submenu_hover.jpg')";
+		$("Layer6").style.backgroundSize="200px,100px";
 		var msg="sessionKey="+Cookie.getCookie("sessionKey");
 		getdata("moneyinmonth",msg,function(xmlHttp){
 			if(xmlHttp.readyState == 4 && xmlHttp.status ==200){
