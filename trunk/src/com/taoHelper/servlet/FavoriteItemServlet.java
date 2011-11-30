@@ -13,8 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONArray;
 
 import com.taoHelper.constants.ServeletConstant;
-import com.taoHelper.dataObject.FavoriteItem;
 import com.taoHelper.service.FavoriteService;
+import com.taobao.api.domain.Item;
 
 /**
  * Servlet implementation class FavoriteItemServlet
@@ -54,9 +54,9 @@ public class FavoriteItemServlet extends HttpServlet {
 		String method=request.getParameter("method");
 		if(method.equals("getFavorite")){
 			String userNick = request.getParameter("nick");
-			String sessionKey = request.getParameter("session_key");
+			String sessionKey = request.getParameter("sessionKey");
 			
-			List<FavoriteItem> fi_list = fs.getFavoritePriceByUserNick(sessionKey, userNick);
+			List<Item> fi_list = fs.getFavoriteItemByUserNick(sessionKey, userNick);
 			if(fi_list==null){
 				out.println(ServeletConstant.MSG_FAIL);
 				return;
