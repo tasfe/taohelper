@@ -51,20 +51,16 @@ public class FavoriteItemServlet extends HttpServlet {
 		FavoriteService fs = new FavoriteService();
 		PrintWriter out = response.getWriter();
 		
-		String method=request.getParameter("method");
-		if(method.equals("getFavorite")){
-			String userNick = request.getParameter("nick");
-			String sessionKey = request.getParameter("sessionKey");
-			
-			List<Item> fi_list = fs.getFavoriteItemByUserNick(sessionKey, userNick);
-			if(fi_list==null){
-				out.println(ServeletConstant.MSG_FAIL);
-				return;
-			}
-			JSONArray ja = new JSONArray(fi_list);
-			out.println(ja.toString());
-			
+		String userNick = request.getParameter("nick");
+		String sessionKey = request.getParameter("sessionKey");
+		
+		List<Item> fi_list = fs.getFavoriteItemByUserNick(sessionKey, userNick);
+		if(fi_list==null){
+			out.println(ServeletConstant.MSG_FAIL);
+			return;
 		}
+		JSONArray ja = new JSONArray(fi_list);
+		out.println(ja.toString());
 		
 		out.flush();
 		out.close();

@@ -16,19 +16,19 @@ import com.taobao.api.response.ItemGetResponse;
  */
 public class ItemTOPClient extends BaseTOPClient {
 
-	// ¸ù¾Ýid²éÑ¯ÉÌÆ·ÏêÇé
+	// ï¿½ï¿½ï¿½idï¿½ï¿½Ñ¯ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½
 	public Item getItemByIdNumId(Number numId) {
 		TaobaoClient client = new DefaultTaobaoClient(this.inUseURL,
 				this.appKey, this.appSecret);
 		ItemGetRequest req = new ItemGetRequest();
-		// ºÃ¶àÊôÐÔÃ»ÓÐ¶ÁÈ¡£¬Èç¹ûÐèÒª¿ÉÒÔ¼ÌÐøÌí¼Ó¡£
-		req.setFields("num_iid,title,nick,desc,skus,created,num,price,cid");
+		// ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½Ð¶ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½Ó¡ï¿½
+		req.setFields("num_iid,title,nick,desc,skus,created,num,price,cid,item_img");
 		req.setNumIid(numId.longValue());
 		try {
 			ItemGetResponse response = client.execute(req);
 			return response.getItem();
 		} catch (ApiException e) {
-			logger.error("taobao.item.get APIµ÷ÓÃ´íÎó", e);
+			logger.error("taobao.item.get APIï¿½ï¿½ï¿½Ã´ï¿½ï¿½ï¿½", e);
 		}
 
 		return null;
