@@ -30,7 +30,44 @@
     <servlet-name>MoneyInCat</servlet-name>
     <servlet-class>com.taoHelper.servlet.MoneyInCatServlet</servlet-class>
   </servlet>
-  
+  <!-- added by zhaowei -->
+	<servlet>
+		<description>CurrentTrade Servlet</description>
+		<display-name>CurrentTrade Servlet</display-name>
+		<servlet-name>CurrentTrade</servlet-name>
+		<servlet-class>com.taoHelper.servlet.CurrentTradeServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<description>Logistics Servlet</description>
+		<display-name>Logistics Servlet</display-name>
+		<servlet-name>Logistics</servlet-name>
+		<servlet-class>com.taoHelper.servlet.LogisticsServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<description>PriceTrend Servlet</description>
+		<display-name>PriceTrend Servlet</display-name>
+		<servlet-name>PriceTrend</servlet-name>
+		<servlet-class>com.taoHelper.servlet.PriceTrendServlet</servlet-class>
+	</servlet>
+	<!-- end added by zhaowei -->
+	<!-- added by zhaowei -->
+	<servlet-mapping>
+		<servlet-name>CurrentTrade</servlet-name>
+		<url-pattern>/currenttrade</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>Logistics</servlet-name>
+		<url-pattern>/logistics</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>PriceTrend</servlet-name>
+		<url-pattern>/pricetrend</url-pattern>
+	</servlet-mapping>
+	<!-- end added by zhaowei -->
   <servlet-mapping>
     <servlet-name>Budget</servlet-name>
     <url-pattern>/budget</url-pattern>
