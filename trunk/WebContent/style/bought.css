@@ -1,0 +1,1141 @@
+/*pub-2|2011-11-28 17:18:31*/
+.dialog {
+	position: absolute;
+	visibility: visible;
+	z-index: 9998;
+	left: 430px;
+	top: 684px;
+	border-left: 1px solid #808080;
+	border-right: 1px solid #808080;
+	background-color: #F2F2F2
+}
+
+.dialog .dialog-bd {
+	position: relative;
+	border-top: 1px solid #808080;
+	border-bottom: 1px solid #808080;
+	margin: -1px 0;
+	padding: 20px;
+	background-color: #F2F2F2;
+	z-index: 1;
+	overflow: hidden
+}
+
+.dialog .dialog-bd .bd {
+	margin: 10px 0
+}
+
+.dialog a.close {
+	position: absolute;
+	font-size: 0;
+	text-indent: -9999px;
+	top: 5px;
+	right: 6px;
+	height: 15px;
+	width: 25px;
+	background: #FFF
+		url('http://img03.taobaocdn.com/tps/i3/T13A4WXkVgXXXXXXXX-25-15.png')
+		no-repeat;
+	z-index: 9999
+}
+
+.dialog .underlay {
+	background-color: #000;
+	bottom: -3px;
+	left: -3px;
+	opacity: .12;
+	filter: Alpha(opacity = 12);
+	position: absolute;
+	right: -3px;
+	top: 2px
+}
+
+.mask {
+	z-index: 10;
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #000;
+	width: 100%;
+	opacity: .25;
+	filter: Alpha(opacity = 25)
+}
+
+.masked-login {
+	background-color: #AAA;
+	left: 0;
+	opacity: .5;
+	filter: Alpha(opacity = 50);
+	position: absolute;
+	top: 0;
+	visibility: hidden;
+	width: 100%;
+	z-index: 10
+}
+
+.masked-shim {
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 9999
+}
+
+.bought-table .button,.bought-table .col-name th,.bought-table .toolbtn
+	{
+	background:
+		url(http://img03.taobaocdn.com/tps/i3/T12WeoXbBnXXXXXXXX-84-292.png)
+		no-repeat
+}
+
+.bought-table {
+	table-layout: fixed;
+	width: 100%;
+	border-collapse: collapse;
+	vertical-align:middle;
+}
+
+.bought-table td {
+	line-height: 1.5;
+	border: 1px solid #D4E7FF
+}
+
+.bought-table tbody.msg td {
+	padding: 8px 5px;
+	border: 0
+}
+
+.bought-table .button {
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	font-size: 12px;
+	text-align: center;
+	vertical-align: middle;
+	cursor: pointer;
+	border: 0;
+	*display: inline;
+	*zoom: 1
+}
+
+.bought-table col.selector {
+	width: 25px
+}
+
+.bought-table col.baobei {
+	width: 205px
+}
+
+.bought-table col.price {
+	width: 65px
+}
+
+.bought-table col.quantity {
+	width: 40px
+}
+
+.bought-table col.after-service {
+	width: 68px
+}
+
+.bought-table col.amount {
+	width: 98px
+}
+
+.bought-table col.trade-status {
+	width: 98px
+}
+
+.bought-table col.operate {
+	width: 82px
+}
+
+.bought-table col.other {
+	width: 58px
+}
+
+.bought-table .sep-row {
+	height: 7px
+}
+
+.bought-table .sep-row td {
+	border: 0
+}
+
+.bought-table .col-name th {
+	height: 33px;
+	text-align: center;
+	background-repeat: repeat-x;
+	border-top: 1px solid #C4D5E0;
+	border-bottom: 1px solid #C4D5E0;
+	color: #000
+}
+
+.bought-table .toolbar {
+	height: 30px;
+	background-color: #F3F3F3
+}
+
+.bought-table .toolbar td {
+	border: 1px solid #DEDEE0;
+	border-width: 1px 0
+}
+
+.bought-table .toolbar span {
+	color: gray
+}
+
+.bought-table .all-selector {
+	margin: 0 6px 0 10px;
+	line-height: 20px;
+	vertical-align: middle
+}
+
+.bought-table .toolbtn {
+	display: inline-block;
+	width: 59px;
+	height: 20px;
+	margin-left: 5px;
+	line-height: 20px;
+	vertical-align: middle;
+	text-align: center;
+	background-position: 0 -250px
+}
+
+.bought-table .toolbtn:hover {
+	background-position: 0 -272px
+}
+
+.bought-table .long-toolbtn {
+	width: 84px;
+	background-position: 0 -208px
+}
+
+.bought-table .long-toolbtn:hover {
+	background-position: 0 -229px
+}
+
+.bought-table .order-hd {
+	background: #e8f2ff;
+	color: #404040
+}
+
+.bought-table .order-hd .contact {
+	display: inline;
+	float: right;
+	margin-right: 5px;
+	_margin-top: -17px
+}
+
+.bought-table .close-order .order-hd,.bought-table .success-order .order-hd
+	{
+	background: #f3f3f3
+}
+
+.bought-table .order-hd td {
+	height: 29px;
+	padding-bottom: 1px;
+	line-height: 29px
+}
+
+.bought-table .order-hd .no,.bought-table .order-hd .seller,.bought-table .order-hd .deal-time,.bought-table .order-hd .order-num
+	{
+	display: inline-block;
+	*display: inline;
+	*zoom: 1
+}
+
+.bought-table .order-hd img {
+	vertical-align: middle
+}
+
+.bought-table .order-hd .order-num {
+	margin-right: 15px
+}
+
+.bought-table .order-hd .hd-icon {
+	width: 16px;
+	height: 17px;
+	margin: 0 -2px 0 2px;
+	vertical-align: middle;
+	*margin-right: 2px;
+	background:
+		url(http://img01.taobaocdn.com/tps/i1/T1ofibXc0zXXXXXXXX-16-81.png)
+		no-repeat
+}
+
+.bought-table .order-hd .tmall-icon {
+	margin-bottom: 2px;
+	background-position: 0 2px
+}
+
+.bought-table .order-hd .three-c-icon {
+	background-position: 0 -15px
+}
+
+.bought-table .order-hd .game-icon {
+	background-position: 0 -31px
+}
+
+.bought-table .order-hd .travel-icon {
+	background-position: 0 -48px
+}
+
+.bought-table .order-hd .taohua-icon {
+	background-position: 0 -64px
+}
+
+.bought-table .order-hd .seller {
+	margin-left: 15px
+}
+
+.bought-table .order-hd .selector {
+	margin-left: 10px;
+	vertical-align: middle;
+	*margin: 0 -2px 0 1px
+}
+
+.bought-table .order-bd td {
+	padding: 8px 5px;
+	overflow: hidden;
+	text-align: center;
+	vertical-align: top;
+	border-left-color: #e6e6e6;
+	border-right-color: #e6e6e6
+}
+
+.bought-table .order-bd .baobei {
+	border-left-color: #D4E7FF
+}
+
+.bought-table .order-bd .other {
+	border-right-color: #D4E7FF
+}
+
+#main-content .close-order td,#main-content .success-order td {
+	border-color: #e6e6e6
+}
+
+#main-content .order-bd .baobei {
+	border-right: 0
+}
+
+#main-content .order-bd .price,#main-content .order-bd .quantity,#main-content .order-bd .after-service
+	{
+	border-left: 0;
+	border-right: 0
+}
+
+.bought-table .operate a,.bought-table .other a,.bought-table .trade-status .status,.bought-table .trade-status span,.bought-table .amount span,.bought-table .after-service a
+	{
+	display: block;
+	margin-top: 2px
+}
+
+.bought-table .order-bd .baobei {
+	padding-left: 10px;
+	padding-right: 0;
+	text-align: left
+}
+
+.bought-table .baobei .pic,.bought-table .baobei .desc {
+	display: inline;
+	float: left
+}
+
+.bought-table .baobei .pic {
+	margin-right: 10px;
+	border: 1px solid #E9E9E9
+}
+
+.bought-table .baobei .pic img {
+	width: 70px;
+	height: 70px
+}
+
+.bought-table .baobei .desc {
+	width: 180px;
+	overflow: hidden;
+	word-wrap: break-word
+}
+
+.bought-table .baobei .baobei-name {
+	display: block;
+	max-height: 38px;
+	margin-top: -2px;
+	overflow: hidden;
+	line-height: 18px
+}
+
+.bought-table .jipiao-order .baobei-name,.bought-table .jipiao-order .baobei-name:hover
+	{
+	color: #404040;
+	cursor: text;
+	text-decoration: none
+}
+
+.bought-table .baobei .spec {
+	max-height: 38px;
+	overflow: hidden;
+	line-height: 18px;
+	color: gray
+}
+
+.bought-table .baobei .spec span {
+	margin-right: 5px
+}
+
+.bought-table .baobei .misc {
+	color: #808080
+}
+
+.bought-table .baobei .good-icons a,.bought-table .xb-quality,.bought-table .xb-maintain,.bought-table .xb-deliver,.bought-table .xb-return,.bought-table .xb-description,.bought-table .xb-aclass,.bought-table .xb-dbb,.bought-table .xb-zhijian
+	{
+	display: inline-block;
+	width: 16px;
+	height: 18px;
+	margin-left: 3px;
+	vertical-align: middle
+}
+
+.bought-table .xb-quality,.bought-table .xb-maintain,.bought-table .xb-deliver,.bought-table .xb-return,.bought-table .xb-description,.bought-table .xb-aclass,.bought-table .xb-dbb,.bought-table .xb-zhijian
+	{
+	background:
+		url(http://img01.taobaocdn.com/tps/i1/T1vSGnXm4SXXXXXXXX-16-152.png)
+		no-repeat
+}
+
+.bought-table .baobei .good-icons img {
+	display: block
+}
+
+.bought-table .xb-aclass {
+	background-position: 0 -95px
+}
+
+.bought-table .xb-quality {
+	background-position: 0 -57px
+}
+
+.bought-table .xb-maintain {
+	background-position: 0 -19px
+}
+
+.bought-table .xb-deliver {
+	background-position: 0 -38px
+}
+
+.bought-table .xb-return {
+	background-position: 0 0
+}
+
+.bought-table .xb-description {
+	background-position: 0 -76px
+}
+
+.bought-table .xb-zhijian {
+	background-position: 0 -116px
+}
+
+.bought-table .xb-dbb {
+	background-position: 0 -137px
+}
+
+.bought-table .order-bd .quantity {
+	font-weight: 400
+}
+
+.bought-table .more-sell {
+	display: block;
+	width: 24px;
+	height: 15px;
+	line-height: 15px;
+	margin: 0 auto;
+	padding: 0 3px;
+	font-weight: 400;
+	background: #f50;
+	color: #fff
+}
+
+.bought-table .after-service .sub-apply {
+	color: #404040
+}
+
+.bought-table .after-service .refund-doing {
+	padding-left: 16px;
+	background:
+		url("http://img01.taobaocdn.com/tps/i1/T1bw5mXddfXXXXXXXX-16-16.png")
+		no-repeat 0 1px;
+	color: #D35050
+}
+
+.bought-table .after-service a {
+	cursor: pointer
+}
+
+.bought-table .after-service .tousu-weiquan {
+	color: #36C
+}
+
+.bought-table .amount strong {
+	font-weight: 700
+}
+
+.bought-table .amount .post-type {
+	color: gray
+}
+
+.bought-table .amount .cod-icon {
+	text-indent: 18px;
+	background: url(http://a.tbcdn.cn/img/app/logis/cod-icon.png) 14px 3px
+		no-repeat;
+	color: #404040
+}
+
+.bought-table .trade-status .closed {
+	color: gray
+}
+
+.bought-table .trade-status .success {
+	color: #066601
+}
+
+.bought-table .trade-status .wait {
+	color: #000
+}
+
+.bought-table .trade-status .uinfo-icon,.bought-table .trade-status .vuinfo-icon
+	{
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	margin-bottom: -3px;
+	background:
+		url(http://img02.taobaocdn.com/tps/i2/T1A5RWXaNcXXXXXXXX-129-327.png)
+		no-repeat 0 -34px;
+	*display: inline;
+	*zoom: 1;
+	*margin-right: 3px
+}
+
+.bought-table .trade-status .vuinfo-icon {
+	background-position: 0 -18px
+}
+
+.bought-table .trade-status .todo,.bought-table .trade-status .handing {
+	color: #f50
+}
+
+.bought-table .operate .small-btn,.bought-table .operate .small-long-btn
+	{
+	display: inline-block;
+	*display: inline;
+	*zoom: 1
+}
+
+.bought-table .operate .skin-blue .button {
+	width: 67px;
+	background-position: 0 -104px
+}
+
+.bought-table .operate .skin-blue .button:hover {
+	background-position: 0 -182px
+}
+
+.bought-table .operate .skin-orange .button {
+	width: 49px;
+	background-position: 0 -78px
+}
+
+.bought-table .operate .skin-orange .button:hover {
+	background-position: 0 -156px
+}
+
+.bought-table .operate .skin-white .small-btn {
+	width: 51px;
+	background-position: 0 -52px;
+	color: #404040
+}
+
+.bought-table .operate .skin-white .small-btn:hover {
+	background-position: 0 -130px
+}
+
+.bought-table .other .J_ShareSNS a,.bought-table .other .sns-share a,.bought-table .other .memo-flag
+	{
+	background:
+		url(http://img01.taobaocdn.com/tps/i1/T1vnOnXdd1XXXXXXXX-13-115.png)
+		no-repeat
+}
+
+.bought-table .order-bd .other {
+	width: 48px;
+	padding-right: 10px;
+	text-align: right
+}
+
+.bought-table .other a {
+	white-space: nowrap
+}
+
+.bought-table .other .J_ShareSNS a,.bought-table .other .sns-share a {
+	display: inline-block;
+	padding-left: 16px;
+	background-position: 0 -100px;
+	*display: inline;
+	*zoom: 1
+}
+
+.bought-table .other .memo0 {
+	background-position: 10px 3px
+}
+
+.bought-table .other .memo1 {
+	background-position: 10px -13px
+}
+
+.bought-table .other .memo2 {
+	background-position: 10px -30px
+}
+
+.bought-table .other .memo3 {
+	background-position: 10px -47px
+}
+
+.bought-table .other .memo4 {
+	background-position: 10px -64px
+}
+
+.bought-table .other .memo5 {
+	background-position: 10px -81px
+}
+
+.bought-table .expander td {
+	background-color: #F6F6F6;
+	text-align: center
+}
+
+.bought-table .expander a {
+	padding-left: 10px;
+	background:
+		url(http://img02.taobaocdn.com/tps/i8/T1oiJuXfJlXXXXXXXX-7-4.png)
+		no-repeat 0 5px
+}
+
+.bought-table .extra {
+	display: none
+}
+
+.paginator-arrow {
+	position: absolute;
+	top: 5px;
+	width: 0;
+	height: 0;
+	margin-right: 0;
+	overflow: hidden;
+	cursor: pointer;
+	border: 5px solid transparent;
+	_border-color: #fff
+}
+
+.paginator-arrow-left-grey {
+	left: 1px;
+	border-right-color: #C0C1BE
+}
+
+.paginator-arrow-left-orange {
+	left: 1px;
+	border-right-color: #f60
+}
+
+.paginator-arrow-right-orange {
+	right: 1px;
+	border-left-color: #f60
+}
+
+.paginator-arrow-right-grey {
+	right: 1px;
+	border-left-color: #C0C1BE
+}
+
+.paginator-arrow-left-grey,.paginator-arrow-right-grey {
+	cursor: default
+}
+
+.paginator-top {
+	display: inline;
+	float: right;
+	text-align: right
+}
+
+.paginator-top a,.paginator-top div {
+	position: relative;
+	height: 20px;
+	margin-right: 10px;
+	padding: 0 6px;
+	line-height: 20px;
+	vertical-align: middle;
+	border: 1px solid #ccc
+}
+
+.paginator-top .g-u {
+	display: inline;
+	float: left;
+	margin: 0 3px 0 0;
+	background: #fff
+}
+
+.paginator-top .paginator-next,.paginator-top .paginator-previous {
+	width: 45px;
+	text-align: left
+}
+
+.paginator-top div.paginator-next,.paginator-top div.paginator-previous
+	{
+	color: #C0C1BE;
+	cursor: default
+}
+
+.paginator-top .paginator-previous {
+	text-align: right
+}
+
+.paginator-top .paginator-previous-grey,.paginator-top .paginator-previous-orange
+	{
+	width: 20px;
+	padding: 0
+}
+
+.paginator-top a.paginator-next:hover,.paginator-top a.paginator-previous:hover,.paginator-top a.paginator-previous-orange:hover
+	{
+	border-color: #f50;
+	color: #f50;
+	text-decoration: none
+}
+
+.page-nav-cell {
+	text-align: right
+}
+
+.page-nav {
+	display: inline;
+	float: right;
+	margin-right: 2px
+}
+
+.page-nav li {
+	display: inline;
+	float: left;
+	height: 25px;
+	margin-right: 3px;
+	line-height: 25px;
+	color: #aaa
+}
+
+.page-nav input {
+	vertical-align: middle
+}
+
+.page-nav a {
+	display: block;
+	min-width: 15px;
+	height: 23px;
+	padding: 0 5px;
+	line-height: 23px;
+	text-align: center;
+	white-space: nowrap;
+	background: #fff;
+	border: 1px solid #ccc;
+	color: #06c;
+	text-decoration: none;
+	_width: 15px
+}
+
+.page-nav a:hover {
+	color: red;
+	border-color: #f50
+}
+
+.page-nav .first-page a {
+	padding: 0 5px;
+	text-align: center
+}
+
+.page-nav .curr-page a {
+	font-weight: 700;
+	background-color: #FFEEE5;
+	border-color: #f50;
+	color: red
+}
+
+.page-nav .prev-page a,.page-nav .next-page a {
+	position: relative;
+	width: 22px;
+	padding: 0
+}
+
+.page-nav .hundreds {
+	width: auto;
+	padding: 0 5px
+}
+
+.page-nav .paginator-arrow {
+	top: 7px
+}
+
+.page-nav .prev-page .paginator-previous,.page-nav .next-page .paginator-next
+	{
+	position: relative;
+	width: 45px;
+	padding: 0 6px
+}
+
+.page-nav .prev-page .paginator-previous:hover,.page-nav .next-page .paginator-next:hover
+	{
+	text-decoration: none
+}
+
+.page-nav .prev-page .paginator-previous {
+	text-align: right
+}
+
+.page-nav .next-page .paginator-next {
+	text-align: left
+}
+
+#J_PageNum {
+	width: 32px;
+	height: 21px;
+	margin: 0 2px;
+	border: 1px solid #999
+}
+
+#J_JumpTo {
+	width: 37px;
+	height: 25px;
+	padding-bottom: 1px
+}
+
+.page-nav .paginator-arrow-left-orange {
+	left: 3px;
+	border-right-color: #f60
+}
+
+.page-nav .paginator-arrow-right-orange {
+	right: 3px;
+	border-left-color: #f60
+}
+
+.page-nav .prev-page .disabled {
+	cursor: default;
+	background-position: 7px -35px
+}
+
+.page-nav .next-page .disabled {
+	cursor: default;
+	color: #7F7F7F;
+	text-decoration: none;
+	background-position: 45px -55px
+}
+
+.page-nav .selected {
+	background-color: #0196CE;
+	color: #fff
+}
+
+.bought-list .last-tips {
+	margin: 10px 0 10px;
+	text-align: right
+}
+
+.popup-info-box .bl,.popup-info-box .br,.popup-info-box .bd,.popup-info-box .bt .corner,.popup-info-box .bt .mid
+	{
+	background:
+		url(http://img02.taobaocdn.com/tps/i2/T1dUdWXh8BXXXXXXXX-30-325.png)
+		no-repeat 0 0
+}
+
+.popup-info-box {
+	display: none;
+	position: absolute;
+	left: 80px;
+	top: 2px;
+	z-index: 995;
+	padding-bottom: 10px
+}
+
+.popup-info-box .bl {
+	padding-left: 14px
+}
+
+.popup-info-box .br {
+	padding-right: 11px;
+	background-position: 238px 0
+}
+
+.popup-info-box .bd {
+	width: 210px;
+	padding: 20px 25px 15px 15px;
+	line-height: 170%;
+	text-align: left;
+	background-color: #fff;
+	background-repeat: repeat-x;
+	background-position: 0 -319px;
+	color: #666
+}
+
+.popup-info-box .bt {
+	clear: both;
+	position: relative
+}
+
+.popup-info-box .bt .corner {
+	position: absolute;
+	top: 0;
+	width: 13px;
+	height: 12px;
+	font-size: 0;
+	background-position: 0 -304px
+}
+
+.popup-info-box .bt .bt-l {
+	left: 0
+}
+
+.popup-info-box .bt .bt-r {
+	right: 2px;
+	background-position: -11px -304px;
+	_right: 1px
+}
+
+.popup-info-box .bt .mid {
+	position: absolute;
+	top: 0;
+	left: 13px;
+	width: 247px;
+	height: 12px;
+	background-repeat: repeat-x;
+	background-position: 0 -289px
+}
+
+.popup-info-box .user-info-table {
+	table-layout: fixed;
+	width: 230px
+}
+
+.popup-info-box .user-info th {
+	width: 90px;
+	padding-right: 2px;
+	overflow: hidden;
+	vertical-align: top;
+	text-align: right;
+	color: #666
+}
+
+.popup-info-box .user-info td {
+	overflow: hidden;
+	word-wrap: break-word
+}
+
+.popup-info-box .user-info h5 {
+	margin-bottom: 5px;
+	padding-left: 23px;
+	font-size: 12px;
+	font-weight: 700;
+	color: #C33700;
+	background: url(http://a.tbcdn.cn/app/trade/img/user_info_bg.gif)
+		no-repeat 0 4px
+}
+
+.popup-info-box hr {
+	clear: both;
+	width: 210px;
+	height: 2px;
+	margin: 5px 0;
+	overflow: hidden;
+	border-width: 0;
+	border-top: 1px solid #F7EEC2;
+	border-bottom: 1px solid #FFF
+}
+
+.popup-info-box .view-address {
+	margin: 8px 0 0 40px
+}
+
+.memo-tip {
+	display: none;
+	position: absolute;
+	z-index: 99;
+	width: 170px;
+	padding: 8px 10px 5px;
+	word-wrap: break-word;
+	background: #FFFCF3;
+	border: 1px solid #F7E4A5
+}
+
+.memo-tip-loading {
+	height: 13px;
+	background: #FFFCF3 url(http://a.tbcdn.cn/app/trade/img/loading2.gif)
+		no-repeat 5px 3px
+}
+
+.tconfirm .bd {
+	margin: 10px
+}
+
+.tconfirm .action span {
+	margin-right: 10px
+}
+
+.popup-box {
+	display: none;
+	padding-bottom: 0;
+	width: 520px;
+	border: 1px #BDE1F1 solid;
+	position: absolute;
+	z-index: 9999;
+	background: #FFF
+}
+
+.popup-box .popup-inner {
+	border: solid 3px #ecf4ff;
+	padding-bottom: 30px
+}
+
+.popup-box i {
+	position: absolute;
+	left: 0;
+	top: 10px;
+	width: 50px;
+	height: 50px;
+	overflow: hidden;
+	text-indent: -9876px;
+	background: url(http://a.tbcdn.cn/sys/common/img/msg_bg.png) no-repeat
+		12px -488px
+}
+
+.popup-box b a {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	width: 9px;
+	height: 9px;
+	overflow: hidden;
+	text-indent: -9876px;
+	background:
+		url(http://img04.taobaocdn.com/tps/i4/T1et4VXkduXXXXXXXX-9-9.png)
+		no-repeat 0 0
+}
+
+.popup-box .detail {
+	padding: 0 30px 30px 60px
+}
+
+.popup-box .detail h3 {
+	padding: 20px 0 10px;
+	color: #000
+}
+
+.popup-box .detail .stat {
+	padding: 5px 0;
+	color: #000
+}
+
+.popup-box {
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135,
+		Color='#808080' );
+	-webkit-box-shadow: 2px 2px 2px #808080;
+	-moz-box-shadow: 2px 2px 2px #808080
+}
+
+.no-result {
+	height: 150px;
+	margin: 30px 0 0 40px;
+	padding: 5px 0 0 120px;
+	text-align: left;
+	background:
+		url(http://img03.taobaocdn.com/tps/i3/T1MQ1cXhtiXXXXXXXX-78-120.png)
+		no-repeat;
+	color: #404040
+}
+
+.no-result .des {
+	display: block;
+	padding: 0 0 20px;
+	font-weight: 700;
+	font-size: 14px
+}
+
+.no-result .sug li {
+	padding-top: 10px
+}
+
+#p4pblock1 {
+	width: 100% !important
+}
+
+#rr-boughtitem-recommend {
+	width: 100%
+}
+
+#rr-boughtitem-recommend .hd {
+	height: 25px;
+	background:
+		url(http://img04.taobaocdn.com/tps/i4/T1DgJJXdVlXXXXXXXX.png) 0 1px
+		repeat-x
+}
+
+#rr-boughtitem-recommend .hd h3 {
+	margin: 0;
+	padding: 2px 8px;
+	font-size: 15px;
+	text-align: left;
+	border: 0
+}
+
+#rr-boughtitem-recommend .bd {
+	background: #fff
+}
+
+#rr-boughtitem-recommend .list {
+	margin-left: -8px
+}
+
+#rr-boughtitem-recommend .item {
+	display: inline;
+	float: left;
+	width: 23.5%;
+	margin-left: 10px;
+	overflow: hidden;
+	text-align: center;
+	_width: 23.3%
+}
+
+#rr-boughtitem-recommend .pic {
+	margin: 0 auto 3px;
+	border: 1px solid #ddd
+}
+
+#rr-boughtitem-recommend .title {
+	width: 100%;
+	height: 40px;
+	margin: 2px auto 0;
+	overflow: hidden;
+	text-align: center;
+	word-wrap: break-word
+}
+
+#rr-boughtitem-recommend .title a {
+	font-size: 12px;
+	color: #404040;
+	text-decoration: none
+}
+
+#rr-boughtitem-recommend .vip-price em {
+	color: #f50;
+	font: bold 14px tahoma, arial, '\5b8b\4f53'
+}

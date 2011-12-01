@@ -35,7 +35,12 @@ var pHistory={
 		//Cookie.addCookie("sessionKey","4112931d4fc320a46ec32e06d6b0bcb1d59009AEHO2g6bb2903040751");
 		$("Layer6").style.background="url('img/submenu_hover.jpg')";
 		$("Layer6").style.backgroundSize="200px,100px";
-		var msg="sessionKey="+Cookie.getCookie("sessionKey");
+		var sessionKey=Cookie.getCookie("sessionKey");
+		if(sessionKey==""){
+			goGetSessionKey();
+			return;
+		}
+		var msg="sessionKey="+sessionKey;
 		getdata("moneyinmonth",msg,function(xmlHttp){
 			if(xmlHttp.readyState == 4 && xmlHttp.status ==200){
 				var res = xmlHttp.responseText;
@@ -59,7 +64,12 @@ var pHistory={
 	//类别
 	goCategoryAnalysis:function(){
 		$("th_chart_container").innerHTML="Loading graph....";
-		var msg="sessionKey="+Cookie.getCookie("sessionKey");
+		var sessionKey=Cookie.getCookie("sessionKey");
+		if(sessionKey==""){
+			goGetSessionKey();
+			return;
+		}
+		var msg="sessionKey="+sessionKey;
 		getdata("moneyincat",msg,function(xmlHttp){
 			if(xmlHttp.readyState == 4 && xmlHttp.status ==200){
 				var res = xmlHttp.responseText;

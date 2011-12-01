@@ -1,12 +1,18 @@
 
-
-
 .index_nick_display{
 	position:absolute;
 	top: 10px;
 	left: 1100px;
 	z-index:20;
 	font-family:Arial;
+}
+
+.upperpart_content{
+	position:absolute;
+	top: 130px;
+	left: 160px;
+	width:900px;	
+
 }
 
 .chart_history{
@@ -18,17 +24,11 @@
 }
 
 .button_div{
-	text-shadow: rgb(58, 99, 154) 0px -1px 1px;
-	color: rgb(255, 255, 255);
-	float: right;
-	font-size: 14px;
-	margin: 0px;
-	padding: 0px;
-	top: 0px;
-	text-align: center;
-	vertical-align: middle;
-	border-width: 0px 1px 0px 1px;
-	border-style: solid;
-	border-color: rgb(224, 233, 243) rgb(58, 99, 154) rgb(58, 99, 154)
-		rgb(224, 233, 243);
+	background:rgb(150,150,150);
+	display:inline-block;
+	border-radius:4px;
+	font-size:14px;
+	padding:3px;
+	margin-top:5px;
+	border:2px,solid;
 }

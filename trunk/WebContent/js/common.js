@@ -71,13 +71,15 @@ function goAuthorize(){
 			var res = xmlHttp.responseText;
 			
 			if(res != ""){
-				window.open(res,"taobao-authorize","width=611,height=300");		
+				//window.open(res,"taobao-authorize","width=611,height=300");
+				//res = unescape(res);
+				location.href=res;
 			}
 		}
 	});
 }
 
-function getSessionKey(){
+function goGetSessionKey(){
 	var url = "http://container.open.taobao.com/container?appkey=12390550&encode=utf-8";
 	window.open(url,"taobao-authorize","width=611,height=300");
 }
