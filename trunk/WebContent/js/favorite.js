@@ -42,7 +42,9 @@ var pFavorite={
 		$("upperpart_display").innerHTML = tmphtmlUpper;
 	},
 	
-	
+	/**
+	 * 获取用户收藏的商品列表
+	 */
 	
 	getFavoriteProduct:function(){
 		var sessionKey = Cookie.getCookie("sessionKey");
@@ -50,7 +52,7 @@ var pFavorite={
 			goGetSessionKey();
 			return;
 		}
-		var msg="sessionKey="+sessionKey+"&nick="+Cookie.getCookie("userNick");
+		var msg="sessionKey="+sessionKey+"&nick="+Cookie.getCookie("userNick")+"&method=getFavorite";
 		getdata("favoriteitem",msg,function(xmlHttp){
 			if(xmlHttp.readyState == 4 && xmlHttp.status == 200){
 				var res = xmlHttp.responseText;
@@ -63,9 +65,32 @@ var pFavorite={
 				
 			}
 			pFavorite.drawPage();
+			pFavorite.writeRecord();
 		});
 				
 	},
+	
+	/**
+	 * 在后台的数据库中记录所收藏商品的价格，并且在preference中增加记录
+	 */
+	 writeRecord:function(){
+	 	for(var i=0;i<pFavorite.productArr.length;i++){
+	 		var tmpitem = pFavorite.productArr[i];
+	 		var judge=(Cookie.getCookie("price"+tmpitem.numIid)=="");
+	 		if(true)
+	 		{
+	 			var msg="item_id="+tmpitem.numIid+"&price="+tmpitem.price+"&method=createFavoritePrice";
+	 			getdata("favoriteitem",msg,function(xmlHttp){
+	 				if(xmlHttp.readyState==4&&xmlHttp.status==200){
+	 					//Cookie.addCookie("price"+tmpitem.numIid,1,0);
+	 				}
+	 			});
+	 		}
+	 		
+	 		
+	 	}
+	 	
+	 },
 };
 
 pFavorite.init();
