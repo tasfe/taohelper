@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONArray;
 
-import com.taoHelper.constants.ServeletConstant;
+import com.taoHelper.constants.ServletConstant;
 import com.taoHelper.service.FavoriteService;
 import com.taobao.api.domain.Item;
 
@@ -51,17 +51,27 @@ public class FavoriteItemServlet extends HttpServlet {
 		FavoriteService fs = new FavoriteService();
 		PrintWriter out = response.getWriter();
 		
-		String userNick = request.getParameter("nick");
-		String sessionKey = request.getParameter("sessionKey");
-		
-		List<Item> fi_list = fs.getFavoriteItemByUserNick(sessionKey, userNick);
-		if(fi_list==null){
-			out.println(ServeletConstant.MSG_FAIL);
-			return;
+		String method = request.getParameter("method");
+		if(method.equals("getFavorite")){
+			String userNick = request.getParameter("nick");
+			String sessionKey = request.getParameter("sessionKey");
+			
+			List<Item> fi_list = fs.getFavoriteItemByUserNick(sessionKey, userNick);
+			if(fi_list==null){
+				out.println(ServletConstant.MSG_FAIL);
+				return;
+			}
+			JSONArray ja = new JSONArray(fi_list);
+			out.println(ja.toString());
 		}
-		JSONArray ja = new JSONArray(fi_list);
-		out.println(ja.toString());
-		
+		else if(method.equals("createFavoritePrice")){
+			String item_id = request.getParameter("item_id");
+			double price = Double.valueOf(request.getParameter("price"));
+			if(fs.createFavorRecord(item_id, price)){
+				out.print(ServletConstant.MSG_SUCCESS);
+			}
+			else out.print(ServletConstant.MSG_FAIL);
+		}	
 		out.flush();
 		out.close();
 		

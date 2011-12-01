@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONObject;
 
-import com.taoHelper.constants.ServeletConstant;
+import com.taoHelper.constants.ServletConstant;
 import com.taoHelper.service.TradeService;
 
 /**
@@ -54,7 +54,7 @@ public class MoneyInMonthServlet extends HttpServlet {
 			JSONObject jo= new JSONObject(tmpMap);
 			out.println(jo.toString());
 		}
-		else out.print(ServeletConstant.MSG_FAIL);
+		else out.print(ServletConstant.MSG_FAIL);
 		out.flush();
 		out.close();
 	}

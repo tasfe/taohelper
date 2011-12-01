@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONObject;
 
-import com.taoHelper.constants.ServeletConstant;
+import com.taoHelper.constants.ServletConstant;
 import com.taoHelper.dataObject.Budget;
 import com.taoHelper.service.BudgetService;
 
@@ -55,8 +55,8 @@ public class BudgetServlet extends HttpServlet {
 			String name = request.getParameter("nick");
 			double limit = Double.parseDouble(request.getParameter("limit"));
 						
-			if(bs.createBudget(name, limit)) out.print(ServeletConstant.MSG_SUCCESS);
-			else out.print(ServeletConstant.MSG_FAIL);		
+			if(bs.createBudget(name, limit)) out.print(ServletConstant.MSG_SUCCESS);
+			else out.print(ServletConstant.MSG_FAIL);		
 		}
 		else if(method.equals("getBudget")){
 			String name = request.getParameter("nick");

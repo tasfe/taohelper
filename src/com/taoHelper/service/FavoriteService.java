@@ -3,6 +3,7 @@
  */
 package com.taoHelper.service;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,9 +18,9 @@ import com.taobao.api.domain.Item;
 public class FavoriteService extends BaseService {
 
 	/*
-	 * ²éÔƒÓÃ‘ôÊÕ²ØŠA Í¨¹ýFavoriteTOPClientÖÐgetFavoriteByUserNick·½·¨»ñµÃÊý¾ÝÊÕ²ØŠA”µ“þ
-	 * Í¨ß^CollectItemDAO«@µÃÔ“ÉÌÆ·µÄšvÊ·ƒr¸ñ
-	 * ¶ÔÓ¦¼Û¸ñ²¨¶¯Ò³Ãæ
+	 * ï¿½ï¿½Ôƒï¿½Ã‘ï¿½ï¿½Õ²ØŠA Í¨ï¿½ï¿½FavoriteTOPClientï¿½ï¿½getFavoriteByUserNickï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ²ØŠAï¿½ï¿½ï¿½ï¿½
+	 * Í¨ï¿½^CollectItemDAOï¿½@ï¿½ï¿½Ô“ï¿½ï¿½Æ·ï¿½ÄšvÊ·ï¿½rï¿½ï¿½
+	 * ï¿½ï¿½Ó¦ï¿½Û¸ñ²¨¶ï¿½Ò³ï¿½ï¿½
 	 */
 	public List<FavoriteItem> getFavoritePriceByUserNick(String sessionKey,
 			String userNick) {
@@ -44,8 +45,8 @@ public class FavoriteService extends BaseService {
 
 	}
 
-	/*Í¨ß^ItemTOPClientÖÐgetItemByIdNumId·½·¨«@µÃÊÕ²ØµÄÉÌÆ·Ô”Çé
-	 * ¶ÔÓ¦ÊÕ²Ø±¦±´Ò³Ãæ
+	/*Í¨ï¿½^ItemTOPClientï¿½ï¿½getItemByIdNumIdï¿½ï¿½ï¿½ï¿½ï¿½@ï¿½ï¿½ï¿½Õ²Øµï¿½ï¿½ï¿½Æ·Ô”ï¿½ï¿½
+	 * ï¿½ï¿½Ó¦ï¿½Õ²Ø±ï¿½ï¿½ï¿½Ò³ï¿½ï¿½
 	 */
 	public List<Item> getFavoriteItemByUserNick(String sessionKey,
 			String userNick) {
@@ -67,6 +68,10 @@ public class FavoriteService extends BaseService {
 		
 		return itemList;
 
+	}
+	
+	public boolean createFavorRecord(String  item_id,double price){
+		return favoriteItemDAO.createFavorRecord(item_id, price);
 	}
 
 }
