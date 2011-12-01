@@ -3,7 +3,7 @@ var pMain={
 	sessionKey:"",
 	
 	init:function(){
-		
+//		Cookie.addCookie("userNick","");
 		if(Cookie.getCookie("userNick")==""){
 			$("nick_display").innerHTML = "Haven't linked Taobao";		
 			goAuthorize();
