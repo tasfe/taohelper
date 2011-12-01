@@ -16,14 +16,14 @@ import com.taobao.api.domain.Trade;
 
 /**
  * @author PeggyGao
- * µ÷ÓÃclientºÍDAOÍê³ÉÊý¾ÝÕûºÏ´¦Àí
+ * ï¿½ï¿½ï¿½ï¿½clientï¿½ï¿½DAOï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ï¿½ï¿½
  *
  */
 public class TradeService extends BaseService {
 	
 		
-	/*»ñµÃµ±Ç°½»Ò×ÖÐ¶©µ¥Êý¾ÝÏêÇé
-	 * Í¨¹ýµ÷ÓÃTradeTOPClientÖÐgetCurrentTrade»ñµÃµ±Ç°½»Ò×ÖÐ¶©µ¥µÄÐÅÏ¢
+	/*ï¿½ï¿½Ãµï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	 * Í¨ï¿½ï¿½ï¿½ï¿½ï¿½TradeTOPClientï¿½ï¿½getCurrentTradeï¿½ï¿½Ãµï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 	 * 
 	 */
 	public List<Trade> getCurrentTrades(String sessionKey){
@@ -42,7 +42,7 @@ public class TradeService extends BaseService {
 	
 	
 	/*
-	 * Í¨¹ýµ÷ÓÃLogisticsTOPClientÖÐgetLogisticsInfoByTid»ñµÃÃ¿±Ê¶©µ¥µÄÎïÁ÷ÐÅÏ¢
+	 * Í¨ï¿½ï¿½ï¿½ï¿½ï¿½LogisticsTOPClientï¿½ï¿½getLogisticsInfoByTidï¿½ï¿½ï¿½Ã¿ï¿½Ê¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 	 */
 	public LogisticsInfo getCurrentLogisticsInfo(Number tid,String sellerNick){
 		
@@ -58,8 +58,8 @@ public class TradeService extends BaseService {
 		
 	}
 	 
-	/*»ñµÃÔÂÏû·ÑÍ³¼Æ
-	 * Í¨¹ýµ÷ÓÃTradeTOPClientÖÐgetPastTrades°´ÔÂÍ³¼ÆÏû·Ñ½ð¶î
+	/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í³ï¿½ï¿½
+	 * Í¨ï¿½ï¿½ï¿½ï¿½ï¿½TradeTOPClientï¿½ï¿½getPastTradesï¿½ï¿½ï¿½ï¿½Í³ï¿½ï¿½ï¿½ï¿½Ñ½ï¿½ï¿½
 	 */
 	public Map<Integer,Double> getPaymentInMonth(String sessionKey){
 		
@@ -91,11 +91,11 @@ public class TradeService extends BaseService {
 		
 	}
 	
-	/*»ñµÃÀàÄ¿Ïû·ÑÍ³¼Æ
-	 * Í¨¹ýµ÷ÓÃTradeTOPClientÖÐgetPastTrades»ñµÃÀúÊ·¶©µ¥
-	 * Í¨¹ýItemTOPClientÖÐµÄgetItemByIdNumId·½·¨»ñµÃÉÌÆ·µÄÀàÄ¿id
-	 * Í¨¹ýItemCatTOPClientÖÐµÄgetItemCatByCid»ñµÃÉÌÆ·ÀàÄ¿
-	 * ÕâÀï¶¼Ê¹ÓÃ¸¸ÀàÄ¿
+	/*ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½Í³ï¿½ï¿½
+	 * Í¨ï¿½ï¿½ï¿½ï¿½ï¿½TradeTOPClientï¿½ï¿½getPastTradesï¿½ï¿½ï¿½ï¿½ï¿½Ê·ï¿½ï¿½ï¿½ï¿½
+	 * Í¨ï¿½ï¿½ItemTOPClientï¿½Ðµï¿½getItemByIdNumIdï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½Ä¿id
+	 * Í¨ï¿½ï¿½ItemCatTOPClientï¿½Ðµï¿½getItemCatByCidï¿½ï¿½ï¿½ï¿½ï¿½Æ·ï¿½ï¿½Ä¿
+	 * ï¿½ï¿½ï¿½ï¶¼Ê¹ï¿½Ã¸ï¿½ï¿½ï¿½Ä¿
 	 */
 	public Map<String,Double> getPaymentInCat(String sessionKey){
 		
@@ -115,6 +115,7 @@ public class TradeService extends BaseService {
 		Double money = 0.0;
 		for(int i = 0; i < tradeList.size();i++){
 			trade = tradeList.get(i);
+			if(trade==null||trade.getNumIid()==null) continue;
 			item = itemTopClient.getItemByIdNumId(trade.getNumIid());
 			itemCat = itemCatTopClient.getItemCatByCid(item.getCid());
 			cateName = itemCat.getName();
