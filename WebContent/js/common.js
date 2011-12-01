@@ -64,6 +64,45 @@ function $(name){
 	return document.getElementById(name);
 }
 
+function convertTimeFormat(time_stamp)
+{
+    var myDate = new Date();
+    var curTime=myDate.getTime();
+    
+    // time_stamp=time_stamp.replace(/-/g, "/")
+    // var oldTime = new Date(time_stamp);
+    var oldTime = convertTime(time_stamp);
+    var oldTimeDate=oldTime.getFullYear()+"-"+(oldTime.getMonth()+1)+"-"+oldTime.getDate();
+    var timeInterval=(curTime-oldTime.getTime())/1000/60;
+
+    timeInterval = Math.floor(timeInterval);
+    if(timeInterval<60)
+    {
+        if(timeInterval<=0) return "just now";
+        else return timeInterval+" min"+(timeInterval==1?"":"s")+ " ago";
+    }
+    else
+    {
+        timeInterval = Math.floor(timeInterval/60);
+        if(timeInterval<24) return timeInterval+" hour"+(timeInterval==1?"":"s")+ " ago";
+        else
+        {
+            timeInterval = Math.floor(timeInterval/24);
+            if(timeInterval<7) return timeInterval+" day"+(timeInterval==1?"":"s")+ " ago";
+            else return oldTimeDate;
+        }
+    }   
+}
+
+function convertTime(datetime){
+    var d = new Date();
+    var gmtHours = -d.getTimezoneOffset()/60;
+    var diffHours=8-gmtHours;
+    datetime=new Date(datetime.replace(/-/g, "/"));
+    var localTime=new Date(datetime.valueOf()-diffHours*60*60*1000);
+    return localTime;
+}
+
 function goAuthorize(){
 	var msg="";
 	getdata("authorize",msg,function(xmlHttp){
@@ -81,5 +120,5 @@ function goAuthorize(){
 
 function goGetSessionKey(){
 	var url = "http://container.open.taobao.com/container?appkey=12390550&encode=utf-8";
-	window.open(url,"taobao-authorize","width=611,height=300");
+	window.open(url,"taobao-authorize","width=0,height=0");
 }
