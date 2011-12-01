@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.taoHelper.constants.ServeletConstant;
+import com.taoHelper.constants.ServletConstant;
 import com.taoHelper.service.AuthorizeService;
 
 /**
@@ -48,7 +48,7 @@ public class AuthorizeServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		String url = as.getAuthorizeURL();
 		if(url!=null) out.println(url);
-		else out.print(ServeletConstant.MSG_FAIL);
+		else out.print(ServletConstant.MSG_FAIL);
 		
 		out.flush();
 		out.close();

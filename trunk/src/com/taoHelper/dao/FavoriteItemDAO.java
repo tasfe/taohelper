@@ -22,7 +22,7 @@ public class FavoriteItemDAO extends BaseDAO {
 	/**
 	 * create a favorite record to record the price of a certain item
 	 */
-	public boolean createFavorRecord(String item_id,double price,Date date){
+	public boolean createFavorRecord(String item_id,double price){
 		Connection con=BaseDAO.getConnection();
 		try
 		{
@@ -31,7 +31,7 @@ public class FavoriteItemDAO extends BaseDAO {
 			ps=con.prepareStatement("insert into favorite (item_id, price ,date) values (?,?,?)");
 			ps.setString(1,item_id);
 			ps.setDouble(2, price);
-			ps.setDate(3, date);
+			ps.setDate(3, new Date(System.currentTimeMillis()));
 			
 			ps.executeUpdate();
 			ps.close();
