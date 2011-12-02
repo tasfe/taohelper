@@ -4,6 +4,7 @@ var pMain={
 	
 	init:function(){
 //		Cookie.addCookie("userNick","");
+		var userNick = Cookie.getCookie("userNick");
 		if(Cookie.getCookie("userNick")==""){
 			$("nick_display").innerHTML = "Haven't linked Taobao";		
 			goAuthorize();

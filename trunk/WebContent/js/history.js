@@ -55,6 +55,9 @@ var pHistory={
 				var myChart = new JSChart("th_chart_container", "line");
 				myChart.setDataArray(moneyData);
 				myChart.setSize(840,550);
+				myChart.setTitle('每月消费金额统计');
+				myChart.setAxisNameX("月份");
+				myChart.setAxisNameY('消费金额');
 				myChart.draw();
 			}
 		});
@@ -86,6 +89,9 @@ var pHistory={
 				var myChart = new JSChart("th_chart_container", "bar");
 				myChart.setDataArray(catData);
 				myChart.setSize(840,550);
+				myChart.setTitle('消费类型统计');
+				myChart.setAxisNameX("类型");
+				myChart.setAxisNameY('消费金额');
 				myChart.draw();
 			}
 		});
