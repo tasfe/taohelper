@@ -12,7 +12,8 @@
 	top: 130px;
 	left: 160px;
 	width:900px;	
-
+	height:240px;
+	overflow:hidden;
 }
 
 .chart_history{

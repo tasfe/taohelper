@@ -1,6 +1,7 @@
 var pFavorite={
 	curpage:0, // 0 means favorite products
 	productArr:new Array(),
+	priceTrendArr:new Array(),
 	itemBaseUrl:"http://item.taobao.com/item.htm?id=",
 	thumbSuffix:"_sum.jpg",
 	
@@ -15,7 +16,6 @@ var pFavorite={
 	},
 	drawPage:function(){
 		var tmphtmlUpper="";
-		var tmphtmlLower="";
 		if(pFavorite.curpage==0){
 			tmphtmlUpper = '<table class="bought-table">';
 			for(var i=0;i<pFavorite.productArr.length;i++){
@@ -23,16 +23,15 @@ var pFavorite={
 				var itemurl = pFavorite.itemBaseUrl+tmpitem.numIid;
 				var thumpicurl = tmpitem.itemImgs[0].url+pFavorite.thumbSuffix;
 				
-				tmphtmlUpper += '<tr id="item'+tmpitem.numIid+'" class="order-bd last">'
+				tmphtmlUpper += '<tr id="item'+tmpitem.numIid+'" class="order-bd last" onclick="pFavorite.drawChart('+i+')">'
 								+'<td class="baobei" colspan="2"><a target="_blank" hidefocus="true" title="查看宝贝详情" href="'+itemurl+'" class="pic s50"><img alt="查看宝贝详情" src="'+thumpicurl+'"></a>'
 									+'<span class="desc"><a class="baobei-name" target="_blank" href="#">'+tmpitem.title+'</a></span></td>'
 //								+'<td class="spec">'+tmpitem.nick+'</td>'
 								+'<td><div class="spec"><span>'+tmpitem.nick+'</span></div></td>'
 								+'<td class="price">价格:'+tmpitem.price+'</td>'
 								+'<td class="amount" rowspan><span style="font-size:14px;font-style:bold;color:grey">上架时间</span><span>'+convertTimeFormat(tmpitem.created)+'</span></td>'
-								;
-			}					
-								
+								;					
+			}		
 			tmphtmlUpper += "</table>";
 			
 			
@@ -65,7 +64,8 @@ var pFavorite={
 				
 			}
 			pFavorite.drawPage();
-			pFavorite.writeRecord();
+//			pFavorite.writeRecord();
+			pFavorite.getPriceTrend();
 		});
 				
 	},
@@ -85,12 +85,62 @@ var pFavorite={
 	 					//Cookie.addCookie("price"+tmpitem.numIid,1,0);
 	 				}
 	 			});
-	 		}
-	 		
+	 		}	 		
 	 		
 	 	}
 	 	
 	 },
+	 
+	 /**
+	  * get price trend of the favorite products
+	  */
+	  getPriceTrend:function(){
+	  	var sessionKey = Cookie.getCookie("sessionKey");
+		if(sessionKey==""){
+			goGetSessionKey();
+			return;
+		}
+		var msg="sessionKey="+sessionKey+"&userNick="+Cookie.getCookie("userNick");
+		getdata("pricetrend",msg,function(xmlHttp){
+			if(xmlHttp.readyState == 4 && xmlHttp.status == 200){
+				var res = xmlHttp.responseText;
+				var jsonobj = myeval(res);
+				for(var index in jsonobj){
+					if(jsonobj[index]!=null){
+						pFavorite.priceTrendArr.push(jsonobj[index]);
+					}
+				}
+				
+			}
+			pFavorite.drawChart(0);
+		});
+	  },
+	  
+	  drawChart:function(index){
+	  	var product = pFavorite.productArr[index];
+	  	var numIid = product.numIid;
+	  	var name = product.title;
+	  	
+	  	if(pFavorite.priceTrendArr.length>0){	  		
+	  		
+	  		var hisprice = pFavorite.priceTrendArr[index].historyPrice;
+	  		var priceData = new Array();
+	  		for(var date in hisprice){
+	  			if(hisprice[date]){
+	  				priceData.push([date,hisprice[date]]);
+	  			}
+	  		}  			
+				
+			var myChart = new JSChart("th_chart_container", "line");
+			myChart.setDataArray(priceData);
+			myChart.setSize(840,550);
+			myChart.setTitle(name+'价格变化趋势');
+			myChart.setAxisNameX("日期");
+			myChart.setAxisNameY('价格');
+			myChart.draw();
+	  		
+	  	}
+	  },
 };
 
 pFavorite.init();
