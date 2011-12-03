@@ -37,7 +37,10 @@ Cookie = {
 
 Constants = {
 	MSG_SUCCESS:"msg_success",
-	MSG_FAIL:"msg_fail"
+	MSG_FAIL:"msg_fail",
+	
+	itemBaseUrl:"http://item.taobao.com/item.htm?id=",
+	thumbSuffix:"_sum.jpg"
 };
 
 function getdata(url, msg, callback){

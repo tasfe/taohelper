@@ -2,8 +2,6 @@ var pFavorite={
 	curpage:0, // 0 means favorite products
 	productArr:new Array(),
 	priceTrendArr:new Array(),
-	itemBaseUrl:"http://item.taobao.com/item.htm?id=",
-	thumbSuffix:"_sum.jpg",
 	
 	init:function(){
 		if(Cookie.getCookie("userNick")=="") {
@@ -20,8 +18,8 @@ var pFavorite={
 			tmphtmlUpper = '<table class="bought-table">';
 			for(var i=0;i<pFavorite.productArr.length;i++){
 				var tmpitem = pFavorite.productArr[i];
-				var itemurl = pFavorite.itemBaseUrl+tmpitem.numIid;
-				var thumpicurl = tmpitem.itemImgs[0].url+pFavorite.thumbSuffix;
+				var itemurl = Constants.itemBaseUrl+tmpitem.numIid;
+				var thumpicurl = tmpitem.itemImgs[0].url+Constants.thumbSuffix;
 				
 				tmphtmlUpper += '<tr id="item'+tmpitem.numIid+'" class="order-bd last" onclick="pFavorite.drawChart('+i+')">'
 								+'<td class="baobei" colspan="2"><a target="_blank" hidefocus="true" title="查看宝贝详情" href="'+itemurl+'" class="pic s50"><img alt="查看宝贝详情" src="'+thumpicurl+'"></a>'

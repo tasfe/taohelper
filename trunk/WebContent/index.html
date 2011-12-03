@@ -7,44 +7,41 @@
 <link rel="stylesheet" href="style/main.css" type="text/css"/>
 <style type="text/css">
 body {
-	background-image: url(img/templatemo_body.png);
+	background: url(img/templatemo_body.png);
+	background-size:100%,100%;
 }
-<!--
 #Layer1 {
-	position:absolute;
-	width:536px;
-	height:533px;
 	z-index:1;
-	left: 411px;
-	top: 159px;
+	text-align:center;
+	background:url(img/circle1.png);
+	width :490px;
+	height:486px;
+	margin-left:30%;
+	background-size:491px,490px;
 }
 #Layer2 {
-	position:absolute;
-	width:120px;
-	height:106px;
-	z-index:2;
-	left: 489px;
-	top: 53px;
+	z-index:1;
+	display:inline-block;
+	width:270px;
+	height:110px;
 }
-#Layer3 {
-	position:absolute;
-	width:115px;
-	height:87px;
-	z-index:3;
-	left: 611px;
-	top: 53px;
-}
--->
 </style></head>
 
 <body> 
 <div id="nick_display" class="index_nick_display"></div>
-<p>&nbsp;</p>
-<div id="Layer2"><img src="img/tao.png" alt="" width="113" height="100" longdesc="img/tao.png" /></div>
-<div id="Layer3"><img src="img/taohelper.png" alt="" width="236" height="53" longdesc="img/taohelper.png" /></div>
-<p>&nbsp;</p>
-<div id="Layer1"><a onclick="pMain.goToHistory()"><img src="img/circle1.png" width="545" height="540" border="0" longdesc="img/circle1.png" /></a></div>
-<p>&nbsp;</p>
+<div id="logo"' style="text-align:center;width:100%;margin-top:-10px;">
+	<div id="Layer2"><img src="img/logo.png"  style="width:270px;height:110px"/></div>
+</div>
+<div id="Layer1">
+	<div id="row1" style="width:100%;height:245px;">
+		<div style="width:245px;height:245px;display:inline-block;">Current</div>
+		<div style="width:245px;height:245px;display:inline-block;">Favorite</div>
+	</div>
+	<div id="row2" style="width:100%;height:245px;">
+		<div style="width:245px;height:245px;display:inline-block;">History</div>
+		<div style="width:245px;height:245px;display:inline-block;">Favorite</div>
+	</div>
+</div>
 <script type="text/javascript" src="js/main.js"></script>
 </body>
 
