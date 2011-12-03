@@ -1,5 +1,8 @@
 package com.taoHelper.test.TOPClientTest;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import junit.framework.TestCase;
 
 import org.junit.Test;
@@ -15,5 +18,18 @@ public class ItemTOPClientTest extends TestCase {
 		Item item = itemClient.getItemByIdNumId(6000256733L);
 		System.out.println(item.getTitle() + "numIID=" + item.getNumIid()
 				+ ", price=" + item.getPrice() + ", cid=" + item.getCid());
+	}
+
+	@Test
+	public void testGetItemsByCid() {
+		ItemTOPClient itemClient = new ItemTOPClient();
+		List<Item> itemList = itemClient.getItemsByCid(14).subList(0, 5);
+
+		for (Item i : itemList) {
+			System.out.println(i.getCid() + "  " + i.getNick() + "	"
+					+ i.getPicUrl() + "	" + i.getPrice() + "	" + i.getScore()
+					+ "	" + i.getDetailUrl());
+		}
+
 	}
 }
