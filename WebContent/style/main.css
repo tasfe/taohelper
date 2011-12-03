@@ -1,10 +1,8 @@
 
 .index_nick_display{
-	position:absolute;
-	top: 10px;
-	left: 1100px;
-	z-index:20;
 	font-family:Arial;
+	margin-top:-5px;
+	margin-left:85%;
 }
 
 .upperpart_content{
@@ -32,4 +30,26 @@
 	padding:3px;
 	margin-top:5px;
 	border:2px,solid;
+}
+
+.quarter_history{
+	width:150px;
+	height:150px;
+	z-index:3;
+}
+.logis_info{
+	border-bottom: 1px solid #CCE0FF;
+	background-color: #F2F2F2;
+}
+.title{
+	font-size:14px;
+	font-style:bold;
+	margin: 11px 0 10px;
+	padding: 0 0 5px 10px;
+	border-bottom: solid 2px #CFE2F0;
+}
+.logis_dt{
+	height: 22px;
+	width: 65px;
+	color: gray;
 }
