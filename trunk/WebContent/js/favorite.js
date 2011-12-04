@@ -62,7 +62,8 @@ var pFavorite={
 				
 			}
 			pFavorite.drawPage();
-//			pFavorite.writeRecord();
+			pFavorite.writeRecord();
+			pFavorite.writePreference();
 			pFavorite.getPriceTrend();
 		});
 				
@@ -139,6 +140,23 @@ var pFavorite={
 	  		
 	  	}
 	  },
+	  
+	writePreference:function(){
+		for(var i=0;i<pFavorite.productArr.length;i++){
+	 		var tmpitem = pFavorite.productArr[i];
+
+	 		if(true)
+	 		{
+	 			var msg="cid="+tmpitem.cid+"&userNick="+Cookie.getCookie("userNick");
+	 			getdata("preference",msg,function(xmlHttp){
+	 				if(xmlHttp.readyState==4&&xmlHttp.status==200){
+	 					
+	 				}
+	 			});
+	 		}	 		
+	 		
+	 	}
+	},
 };
 
 pFavorite.init();

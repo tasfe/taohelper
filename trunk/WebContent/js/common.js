@@ -124,5 +124,5 @@ function goAuthorize(){
 
 function goGetSessionKey(){
 	var url = "http://container.open.taobao.com/container?appkey=12390550&encode=utf-8";
-	window.open(url,"taobao-authorize","width=0,height=0");
+	window.open(url,"taobao-authorize","width=60,height=60");
 }

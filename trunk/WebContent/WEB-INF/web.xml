@@ -52,13 +52,13 @@
     <description>Preference Servlet</description>
     <display-name>Preference Servlet</display-name>
     <servlet-name>Preference</servlet-name>
-    <servlet-class>com.taoHelper.PreferenceServlet</servlet-class>
+    <servlet-class>com.taoHelper.servlet.PreferenceServlet</servlet-class>
   </servlet>
   <servlet>
     <description>Recommend Servlet</description>
     <display-name>Recommend Servlet</display-name>
     <servlet-name>Recommend</servlet-name>
-    <servlet-class>com.taoHelper.RecommendServlet</servlet-class>
+    <servlet-class>com.taoHelper.servlet.RecommendServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>Budget</servlet-name>
