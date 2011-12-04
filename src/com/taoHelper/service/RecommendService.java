@@ -1,4 +1,4 @@
-/**
+ï»¿/**
  * 
  */
 package com.taoHelper.service;
@@ -18,9 +18,9 @@ import com.taobao.api.domain.TaobaokeShop;
 public class RecommendService extends BaseService {
 
 	/*
-	 * ¸ù¾İÀà±ğºÍÓÃ»§êÇ³ÆËÑË÷ÌÔ±¦¿ÍÍÆ¼öµêÆÌ Í¨¹ıReferenceDAO»ñµÃÓÃ»§¹ºÎïÆ«ºÃcid
-	 * Í¨¹ıShopTOPClientÖĞgetTaobaokeShopByCid·½·¨»ñµÃÄ³ÀàÄ¿ÏÂµÄÍÆ¹ãµêÆÌ
-	 * Í¨¹ıShopTOPClientÖĞµÄgetShopBySellerNick·½·¨»ñµÃÏàÓ¦µêÆÌ¾ßÌåĞÅÏ¢ ¸ù¾İµêÆÌ·ÖÊı½øĞĞÍÆ¼ö
+	 * æ ¹æ®ç±»åˆ«å’Œç”¨æˆ·æ˜µç§°æœç´¢æ·˜å®å®¢æ¨èåº—é“º é€šè¿‡ReferenceDAOè·å¾—ç”¨æˆ·è´­ç‰©åå¥½cid
+	 * é€šè¿‡ShopTOPClientä¸­getTaobaokeShopByCidæ–¹æ³•è·å¾—æŸç±»ç›®ä¸‹çš„æ¨å¹¿åº—é“º
+	 * é€šè¿‡ShopTOPClientä¸­çš„getShopBySellerNickæ–¹æ³•è·å¾—ç›¸åº”åº—é“ºå…·ä½“ä¿¡æ¯ æ ¹æ®åº—é“ºåˆ†æ•°è¿›è¡Œæ¨è
 	 */
 	public List<TaobaokeShop> getRecommondShops(String userNick) {
 		return null;
@@ -28,10 +28,10 @@ public class RecommendService extends BaseService {
 	}
 
 	/*
-	 * ¸ù¾İÓÃ»§µÄ¹ºÂòÀúÊ· 
-	 * Í¨ß^preDAOÖĞgetPreferenceOfUser·½·¨«@µÃÓÃ‘ôÙÙIÃ¿·NîĞÍÉÌÆ·µÄ”µÁ¿
-	 * Í¨¹ıItemTOPClientÖĞgetItemsByCid·½·¨
-	 * ÏòÓÃ»§ÍÆ¼öÆä¹ºÂòÊıÁ¿Ç°Á½ÃûµÄÀàĞÍµÄ»ñµÃÆÀ·Ö½Ï¸ßµÄÇ°Îå¸öÉÌÆ·
+	 * æ ¹æ®ç”¨æˆ·çš„è´­ä¹°å†å² 
+	 * é€šépreDAOä¸­getPreferenceOfUseræ–¹æ³•ç²å¾—ç”¨æˆ¶è³¼è²·æ¯ç¨®é¡å‹å•†å“çš„æ•¸é‡
+	 * é€šè¿‡ItemTOPClientä¸­getItemsByCidæ–¹æ³•
+	 * å‘ç”¨æˆ·æ¨èå…¶è´­ä¹°æ•°é‡å‰ä¸¤åçš„ç±»å‹çš„è·å¾—è¯„åˆ†è¾ƒé«˜çš„å‰äº”ä¸ªå•†å“
 	 *  
 	 */
 	public List<Item> getRecommondItems(String userNick) {

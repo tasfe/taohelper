@@ -2,6 +2,7 @@ package com.taoHelper.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,23 +10,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.json.JSONObject;
+import org.json.JSONArray;
 
-import com.taoHelper.TOPclient.LogisticsTOPClient.LogisticsInfo;
 import com.taoHelper.constants.ServletConstant;
-import com.taoHelper.service.TradeService;
+import com.taoHelper.service.RecommendService;
+import com.taobao.api.domain.Item;
 
 /**
- * Servlet implementation class LogisticsServlet
+ * Servlet implementation class RecommendServlet
  */
-@WebServlet("/LogisticsServlet")
-public class LogisticsServlet extends HttpServlet {
+@WebServlet("/RecommendServlet")
+public class RecommendServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LogisticsServlet() {
+    public RecommendServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,7 +36,6 @@ public class LogisticsServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doPost(request,response);
 	}
 
 	/**
@@ -43,23 +43,20 @@ public class LogisticsServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/plain");
-		
-		TradeService ts = new TradeService();
 		PrintWriter out = response.getWriter();
 		
-		String tid = request.getParameter("tid");
-		String sellerNick = request.getParameter("sellerNick");
-		
-		LogisticsInfo lInfo = ts.getCurrentLogisticsInfo(Long.valueOf(tid), sellerNick);
-		if(lInfo != null){
-			JSONObject jo = new JSONObject(lInfo);
-			out.println(jo.toString());
+		String userNick = request.getParameter("userNick");
+//		String cid = request.getParameter("cid");
+		RecommendService rs = new RecommendService();
+		List<Item> res_item = rs.getRecommondItems(userNick);
+		if(res_item!=null){
+			JSONArray ja = new JSONArray(res_item);
+			out.println(ja.toString());
 		}
-		else {
-			out.print(ServletConstant.MSG_FAIL);
-		}
+		else out.print(ServletConstant.MSG_FAIL);
 		
 		out.flush();
 		out.close();

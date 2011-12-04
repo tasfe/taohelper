@@ -1,4 +1,4 @@
-/**
+ï»¿/**
  * 
  */
 package com.taoHelper.TOPclient;
@@ -13,13 +13,13 @@ import com.taobao.api.request.ItemcatsGetRequest;
 import com.taobao.api.response.ItemcatsGetResponse;
 
 /**
- * @author PeggyGao ÉÌÆ·ÀàÄ¿¾ù²ÉÓÃ¸¸ÀàÄ¿
+ * @author PeggyGao å•†å“ç±»ç›®å‡é‡‡ç”¨çˆ¶ç±»ç›®
  * 
  */
 public class ItemCatTOPClient extends BaseTOPClient {
 
-	// ²éÑ¯ÉÌÆ·¸¸ÀàÄ¿
-	// ´«ÈëµÄcidÎªÉÌÆ·µÄcid£¬·½·¨ÖĞ²éÑ¯cid¶ÔÓ¦µÄparent_cid£¬È»ºó·µ»Øparent_cid¶ÔÓ¦µÄItemCat
+	// æŸ¥è¯¢å•†å“çˆ¶ç±»ç›®
+	// ä¼ å…¥çš„cidä¸ºå•†å“çš„cidï¼Œæ–¹æ³•ä¸­æŸ¥è¯¢cidå¯¹åº”çš„parent_cidï¼Œç„¶åè¿”å›parent_cidå¯¹åº”çš„ItemCat
 	public ItemCat getItemCatByCid(Number cid) {
 		TaobaoClient client = new DefaultTaobaoClient(this.inUseURL,
 				this.appKey, this.appSecret);
@@ -42,7 +42,7 @@ public class ItemCatTOPClient extends BaseTOPClient {
 				return null;
 			}
 		} catch (ApiException e) {
-			logger.error("taobao.itemats.get APIµ÷ÓÃ´íÎó", e);
+			logger.error("taobao.itemats.get APIè°ƒç”¨é”™è¯¯", e);
 		}
 		return null;
 	}

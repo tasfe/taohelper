@@ -1,4 +1,4 @@
-/**
+ï»¿/**
  * 
  */
 package com.taoHelper.TOPclient;
@@ -19,9 +19,9 @@ import com.taobao.api.response.LogisticsTraceSearchResponse;
 public class LogisticsTOPClient extends BaseTOPClient {
 
 	/*
-	 * Ä¿Ç°É³Ïä²»Ö§³ÖÎïÁ÷²éÑ¯¹¦ÄÜ
+	 * Ä¿Ç°É³ï¿½ä²»Ö§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½
 	 */
-	//²éÑ¯Ä³¶©µ¥µÄÎïÁ÷ĞÅÏ¢
+	//ï¿½ï¿½Ñ¯Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 	public LogisticsInfo getLogisticsInfoByTid(Number tid, String sellerNick){
 		
 		TaobaoClient client=new DefaultTaobaoClient(this.inUseURL, this.appKey, this.appSecret);
@@ -30,26 +30,27 @@ public class LogisticsTOPClient extends BaseTOPClient {
 		req.setSellerNick(sellerNick);
 		try {
 			LogisticsTraceSearchResponse response = client.execute(req);
+			if(response.getOutSid()==null)  return null;
 			Number outSid = Long.valueOf(response.getOutSid());
 			
 			LogisticsInfo info = new LogisticsInfo(response.getTraceList(),
 					response.getCompanyName(), outSid);
 			return info;
 		} catch (ApiException e) {
-			logger.error("taobao.itemats.get APIµ÷ÓÃ´íÎó", e);
+			logger.error("taobao.itemats.get APIï¿½ï¿½ï¿½Ã´ï¿½ï¿½ï¿½", e);
 		}
 		return null;
 	}
 	
 	
-	//ÕâÀïÎÒÍµÀÁĞ´³ÉÄÚ²¿ÀàÁË
-	//ÔİÊ±±ä³ÉpublicµÄÄÚ²¿Àà£¬·½±ã²âÊÔ£¬ÒÔºóĞèÒª¿ÉÒÔ½«¸ÃÀàÒÆµ½ÀàÍâÃæ
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Íµï¿½ï¿½Ğ´ï¿½ï¿½ï¿½Ú²ï¿½ï¿½ï¿½ï¿½ï¿½
+	//ï¿½ï¿½Ê±ï¿½ï¿½ï¿½publicï¿½ï¿½ï¿½Ú²ï¿½ï¿½à£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô£ï¿½ï¿½Ôºï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public class LogisticsInfo {
-		// ÎïÁ÷Á÷×ªĞÅÏ¢
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½Ï¢
 		List<TransitStepInfo> transitStepInfo;
-		// ÎïÁ÷¹«Ë¾
+		// ï¿½ï¿½ï¿½ï¿½Ë¾
 		String company;
-		// ÎïÁ÷µ¥±àºÅ
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		Number outId;
 
 		LogisticsInfo(List<TransitStepInfo> tsi, String company, Number outid) {

@@ -1,4 +1,4 @@
-/**
+﻿/**
  * 
  */
 package com.taoHelper.TOPclient;
@@ -38,19 +38,19 @@ public class ItemTOPClient extends BaseTOPClient {
 		return false;
 	}
 
-	// ���id��ѯ��Ʒ����
+	// 锟斤拷锟絠d锟斤拷询锟斤拷品锟斤拷锟斤拷
 	public Item getItemByIdNumId(Number numId) {
 		TaobaoClient client = new DefaultTaobaoClient(this.inUseURL,
 				this.appKey, this.appSecret);
 		ItemGetRequest req = new ItemGetRequest();
-		// �ö�����û�ж�ȡ�������Ҫ���Լ�����ӡ�
+		// 锟矫讹拷锟斤拷锟斤拷没锟叫讹拷取锟斤拷锟斤拷锟斤拷锟揭拷锟斤拷约锟斤拷锟斤拷锟接★拷
 		req.setFields("num_iid,title,nick,desc,skus,created,num,price,cid,item_img");
 		req.setNumIid(numId.longValue());
 		try {
 			ItemGetResponse response = client.execute(req);
 			return response.getItem();
 		} catch (ApiException e) {
-			logger.error("taobao.item.get API���ô���", e);
+			logger.error("taobao.item.get API锟斤拷锟矫达拷锟斤拷", e);
 		}
 
 		return null;
@@ -59,7 +59,7 @@ public class ItemTOPClient extends BaseTOPClient {
 
 	
 	/*
-	 * �������id ��ѯ��������õȼ�����15����Ʒ�����û�оͽ����õȼ�-1��֪��������
+	 * 根据类别id 查询该类别信用等级大于15的商品，如果没有就将信用等级-1，知道搜索到
 	 */
 	public List<Item> getItemsByCid(long cid) {
 		
@@ -87,7 +87,7 @@ public class ItemTOPClient extends BaseTOPClient {
 			}
 
 		} catch (ApiException e) {
-			logger.error("taobao.items.get API����ʧ��", e);
+			logger.error("taobao.items.get API调用失败", e);
 		}
 
 		return itemList;

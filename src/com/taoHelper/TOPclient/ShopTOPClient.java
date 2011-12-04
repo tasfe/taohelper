@@ -1,4 +1,4 @@
-/**
+ï»¿/**
  * 
  */
 package com.taoHelper.TOPclient;
@@ -19,12 +19,12 @@ import com.taobao.api.response.ShopGetResponse;
  */
 public class ShopTOPClient extends BaseTOPClient {
 	
-	//»ñµÃÍÆ¼öµÄµêÆÌµÄÆğÊ¼ÖÕÖ¹ĞÅÓÃµÈ¼¶£¬¿ª·¢ÈËÔ±¿´Çé¿ö×Ô¼º¶¨Ò»ÏÂ
+	//è·å¾—æ¨èçš„åº—é“ºçš„èµ·å§‹ç»ˆæ­¢ä¿¡ç”¨ç­‰çº§ï¼Œå¼€å‘äººå‘˜çœ‹æƒ…å†µè‡ªå·±å®šä¸€ä¸‹
 	private static String startCredit="5diamond" ;
 	
 	private static String endCredit="5goldencrown";
 	
-	//¸ù¾İsellerNick²éÑ¯µêÆÌ
+	//æ ¹æ®sellerNickæŸ¥è¯¢åº—é“º
 	public Shop getShopBySellerNick(String sellerNick){
 		
 		TaobaoClient client=new DefaultTaobaoClient(this.inUseURL, this.appKey, this.appSecret);
@@ -41,9 +41,9 @@ public class ShopTOPClient extends BaseTOPClient {
 		return null;
 	}
 	
-	//¸ù“şÉÌÆ·îÄ¿ºÍĞÅÓÃµÈ¼¶»ñµÃÌÔŒš¿ÍÍÆVµÄµêÆÌĞÅÏ¢
+	//æ ¹æ“šå•†å“é¡ç›®å’Œä¿¡ç”¨ç­‰çº§è·å¾—æ·˜å¯¶å®¢æ¨å»£çš„åº—é“ºä¿¡æ¯
 	public List<TaobaokeShop> getTaobaokeShopByCid(Number cid,String userNick){
-		System.err.println("ÌÔ¿ÍAPIÎªÔöÖµÒµÎñ£¬TODO");
+		System.err.println("æ·˜å®¢APIä¸ºå¢å€¼ä¸šåŠ¡ï¼ŒTODO");
 		return null;
 	}
 
