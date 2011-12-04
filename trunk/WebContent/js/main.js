@@ -27,6 +27,33 @@ var pMain={
 		else{
 			location.href="history.html";
 		}
+	},
+	
+	goToCurrent:function(){
+		if(Cookie.getCookie("userNick")==""){		
+			goAuthorize();
+		}
+		else{
+			location.href="current.html";
+		}
+	},
+	
+	goToFavorite:function(){
+		if(Cookie.getCookie("userNick")==""){		
+			goAuthorize();
+		}
+		else{
+			location.href="favorite.html";
+		}
+	},
+	
+	goToRecommend:function(){
+		if(Cookie.getCookie("userNick")==""){		
+			goAuthorize();
+		}
+		else{
+			location.href="recommend.html";
+		}
 	}
 	
 };
