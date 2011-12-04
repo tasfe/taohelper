@@ -1,4 +1,4 @@
-/**
+ï»¿/**
  * 
  */
 package com.taoHelper.TOPclient;
@@ -18,7 +18,7 @@ import com.taobao.api.response.SellercatsListGetResponse;
  */
 public class SellerCatTOPClient extends BaseTOPClient {
 	
-	//¸ù¾İÂô¼ÒêÇ³Æ²éÑ¯µêÆÌÉÌÆ·ÀàÄ¿
+	//æ ¹æ®å–å®¶æ˜µç§°æŸ¥è¯¢åº—é“ºå•†å“ç±»ç›®
 	public List<SellerCat> getSellerCatBySellerNick(String sellerNick){
 		
 		TaobaoClient client=new DefaultTaobaoClient(this.inUseURL, this.appKey, this.appSecret);

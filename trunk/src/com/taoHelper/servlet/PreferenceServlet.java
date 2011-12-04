@@ -9,23 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.json.JSONObject;
-
-import com.taoHelper.TOPclient.LogisticsTOPClient.LogisticsInfo;
 import com.taoHelper.constants.ServletConstant;
-import com.taoHelper.service.TradeService;
+import com.taoHelper.service.PreferenceService;
 
 /**
- * Servlet implementation class LogisticsServlet
+ * Servlet implementation class PreferenceServlet
  */
-@WebServlet("/LogisticsServlet")
-public class LogisticsServlet extends HttpServlet {
+@WebServlet("/PreferenceServlet")
+public class PreferenceServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LogisticsServlet() {
+    public PreferenceServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,7 +32,6 @@ public class LogisticsServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doPost(request,response);
 	}
 
 	/**
@@ -43,23 +39,18 @@ public class LogisticsServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/plain");
-		
-		TradeService ts = new TradeService();
 		PrintWriter out = response.getWriter();
 		
-		String tid = request.getParameter("tid");
-		String sellerNick = request.getParameter("sellerNick");
-		
-		LogisticsInfo lInfo = ts.getCurrentLogisticsInfo(Long.valueOf(tid), sellerNick);
-		if(lInfo != null){
-			JSONObject jo = new JSONObject(lInfo);
-			out.println(jo.toString());
+		String userNick = request.getParameter("userNick");
+		String cid = request.getParameter("cid");
+		PreferenceService ps = new PreferenceService();
+		if(ps.addPreference(userNick, cid)){
+			out.print(ServletConstant.MSG_SUCCESS);
 		}
-		else {
-			out.print(ServletConstant.MSG_FAIL);
-		}
+		else out.print(ServletConstant.MSG_FAIL);
 		
 		out.flush();
 		out.close();

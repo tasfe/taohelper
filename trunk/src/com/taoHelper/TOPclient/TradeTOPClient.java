@@ -1,4 +1,4 @@
-/**
+ï»¿/**
  * 
  */
 package com.taoHelper.TOPclient;
@@ -19,14 +19,14 @@ import com.taobao.api.response.TradesBoughtGetResponse;
  */
 public class TradeTOPClient extends BaseTOPClient {
 
-	//µ±Ç°½»Ò×¶©µ¥µÄ×´Ì¬
+	//å½“å‰äº¤æ˜“è®¢å•çš„çŠ¶æ€
 	private static String status_current[] = { "WAIT_BUYER_PAY",
 			"WAIT_SELLER_SEND_GOODS", "WAIT_BUYER_CONFIRM_GOODS" };
 
-	//ÒÑ¾­Íê³ÉµÄ½»Ò×¶©µ¥µÄ×´Ì¬
+	//å·²ç»å®Œæˆçš„äº¤æ˜“è®¢å•çš„çŠ¶æ€
 	private static String status_past[] = {"TRADE_FINISHED"};
 	
-	//»ñÈ¡µ±Ç°½»Ò×ÖĞ¶©µ¥
+	//è·å–å½“å‰äº¤æ˜“ä¸­è®¢å•
 	public List<Trade> getCurrentTrades(String sessionKey) {
 
 		
@@ -47,13 +47,13 @@ public class TradeTOPClient extends BaseTOPClient {
 					System.out.println("You have no opening trades now!");
 			}
 		} catch (ApiException e) {
-			logger.error("taobao.trade.bought.get APIµ÷ÓÃ´íÎó", e);
+			logger.error("taobao.trade.bought.get APIè°ƒç”¨é”™è¯¯", e);
 		}
 		return tradeList;
 
 	}
 	
-	//»ñÈ¡ÀúÊ·½»Ò×¶©µ¥Êı¾İ£¬½ö½ö·µ»Ø³É¹¦Íê³É½»Ò×µÄ¶©µ¥
+	//è·å–å†å²äº¤æ˜“è®¢å•æ•°æ®ï¼Œä»…ä»…è¿”å›æˆåŠŸå®Œæˆäº¤æ˜“çš„è®¢å•
 	public List<Trade> getPastTrades(String sessionKey) {
 		
 		List<Trade> tradeList = new ArrayList<Trade>();
@@ -70,7 +70,7 @@ public class TradeTOPClient extends BaseTOPClient {
 				tradeList.addAll(response.getTrades());
 			}
 		} catch (ApiException e) {
-			logger.error("taobao.trade.bought.get APIµ÷ÓÃ´íÎó", e);
+			logger.error("taobao.trade.bought.get APIè°ƒç”¨é”™è¯¯", e);
 		}
 		return tradeList;
 	}
