@@ -8,7 +8,9 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import com.taoHelper.dataObject.FavoriteItem;
 import com.taobao.api.domain.CollectItem;
@@ -99,6 +101,29 @@ public class FavoriteItemDAO extends BaseDAO {
 			return null;
 		}
 		return fItem;
+	}
+	/**
+	 *  获取所有的收藏商品的id
+	 * 
+	 */
+	public List<String> getAllItemList(){
+		Connection con=BaseDAO.getConnection();
+		List<String> item_list=new ArrayList<String>();
+		
+		try
+		{
+			Statement stmt=con.createStatement();
+			ResultSet rs=stmt.executeQuery("select distinct(item_id) from favorite");		
+			while(rs.next())
+			{
+				item_list.add(rs.getString(1));
+			}
+		}
+		catch (Exception e) {
+			// TODO: handle exception
+			return null;
+		}
+		return item_list;
 	}
 
 }
