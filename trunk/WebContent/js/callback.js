@@ -26,7 +26,7 @@ else{
 	
 	if(session && session!=""){
 		Cookie.addCookie("sessionKey",session,0.5);
-		self.close();
+//		self.close();
 	}	
 }
 
