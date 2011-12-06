@@ -35,6 +35,16 @@ public class TradeService extends BaseService {
 		
 		List<Trade> tradeList = new ArrayList<Trade>();
 		tradeList = tradeTopClient.getCurrentTrades(sessionKey);
+		Trade trade;
+		Item item;
+		for(int i = 0; i < tradeList.size();i++){
+			trade = tradeList.get(i);
+			if(trade==null||trade.getNumIid()==null) continue;		
+			item = itemTopClient.getItemByIdNumId(trade.getNumIid());
+			//add to preference
+			String buyerNick = trade.getBuyerNick();
+			preDAO.createPreference(buyerNick, String.valueOf(item.getCid()));
+		}
 		
 		return tradeList;
 		
@@ -118,6 +128,11 @@ public class TradeService extends BaseService {
 			if(trade==null||trade.getNumIid()==null) continue;
 			item = itemTopClient.getItemByIdNumId(trade.getNumIid());
 			itemCat = itemCatTopClient.getItemCatByCid(item.getCid());
+			
+			//add to preference
+			String buyerNick = trade.getBuyerNick();
+			preDAO.createPreference(buyerNick, String.valueOf(item.getCid()));
+			
 			cateName = itemCat.getName();
 			if(moneyInCat.get(cateName)==null){
 				moneyInCat.put(cateName, Double.valueOf(trade.getPayment()));
