@@ -46,7 +46,7 @@ var pFavorite={
 	getFavoriteProduct:function(){
 		var sessionKey = Cookie.getCookie("sessionKey");
 		if(sessionKey==""){
-			goGetSessionKey();
+			goAuthorize();
 			return;
 		}
 		var msg="sessionKey="+sessionKey+"&nick="+Cookie.getCookie("userNick")+"&method=getFavorite";
@@ -129,13 +129,20 @@ var pFavorite={
 	  				priceData.push([date,hisprice[date]]);
 	  			}
 	  		}  			
-				
+			priceData.sort(function(a,b){if (a[0]==b[0]) return 0; return (a[0]>b[0])?1:-1;});
+			
 			var myChart = new JSChart("th_chart_container", "line");
 			myChart.setDataArray(priceData);
+			
+			myChart.setAxisPaddingLeft(100);
+			myChart.setAxisPaddingRight(120);
+			myChart.setAxisPaddingBottom(50);
+			
 			myChart.setSize(840,550);
 			myChart.setTitle(name+'价格变化趋势');
 			myChart.setAxisNameX("日期");
 			myChart.setAxisNameY('价格');
+//			myChart.setBackgroundImage('img/chart_bg.jpg');
 			myChart.draw();
 	  		
 	  	}

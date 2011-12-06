@@ -43,7 +43,7 @@ var pCurrent={
 	getCurrentTrades:function(){
 		var sessionKey=Cookie.getCookie("sessionKey");
 		if(sessionKey==""){
-			goGetSessionKey();
+			goAuthorize();
 			return;
 		}
 		var msg="sessionKey="+sessionKey;
@@ -77,7 +77,7 @@ var pCurrent={
 				if(xmlHttp.readyState ==4 && xmlHttp.status == 200){
 					var res = xmlHttp.responseText;
 					
-					var tmphtml = '<div>';
+					var tmphtml = '<div class="logis_info">';
 					if(res == Constants.MSG_FAIL){
 						tmphtml += '当前货物尚无物流信息.';
 					}
