@@ -55,7 +55,7 @@ public class FavoriteItemDAO extends BaseDAO {
 		try
 		{
 			Statement stmt=con.createStatement();
-			ResultSet rs=stmt.executeQuery("select price,date from favorite where item_id='"+item_id+"'");
+			ResultSet rs=stmt.executeQuery("select price,date from favorite where item_id='"+item_id+"' order by date asc");
 			
 			HashMap<java.util.Date, Double> tmpHp = new HashMap<java.util.Date, Double>();
 			while(rs.next())
