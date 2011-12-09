@@ -7,9 +7,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
 
 import com.taoHelper.dataObject.Budget;
-import com.taoHelper.exception.DAOException;
 /**
  * @author PeggyGao
  *
@@ -105,6 +108,33 @@ public class BudgetDAO extends BaseDAO {
 			return false;
 		}
 		
+	}
+	
+	/**
+	 * get the buget of every month
+	 */
+	public HashMap <Integer, Double> getAllBudgets(String user_nick){
+		Connection con=BaseDAO.getConnection();
+		HashMap <Integer, Double> reshash = new HashMap<Integer,Double>();
+		try
+		{
+			String sql = "select budget_num,timestamp from budget where user_nick='"+user_nick+"'";
+			Statement stmt=con.createStatement();
+			ResultSet rs=stmt.executeQuery(sql);
+			
+			while(rs.next())
+			{
+				double budget=rs.getDouble(1);
+				Date date = rs.getTimestamp(2);
+				reshash.put(date.getMonth()+1, budget);
+			}
+			
+		}
+		catch (Exception e) {
+			// TODO: handle exception
+			return null;
+		}
+		return reshash;
 	}
 	
 }

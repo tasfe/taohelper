@@ -2,6 +2,8 @@ package com.taoHelper.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
+import java.util.HashMap;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -65,8 +67,15 @@ public class BudgetServlet extends HttpServlet {
 			JSONObject jo = new JSONObject(budget);
 			out.println(jo.toString());		
 		}
+		else if(method.equals("getAllBudgets")){
+			String userNick = request.getParameter("userNick");
+			
+			HashMap<Integer,Double> budget_hash = bs.getAllBudgets(userNick);
+			JSONObject jo = new JSONObject(budget_hash);
+			out.println(jo.toString());	
+		}
 		out.flush();
-		out.close();	
+		out.close();
 	}
 
 }
