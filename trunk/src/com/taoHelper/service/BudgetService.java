@@ -3,6 +3,9 @@
  */
 package com.taoHelper.service;
 
+import java.util.Date;
+import java.util.HashMap;
+
 import com.taoHelper.dataObject.Budget;
 
 /**
@@ -22,9 +25,16 @@ public class BudgetService extends BaseService {
 		Budget budget = new Budget();
 		budget = budgetDAO.getBudget(userNick);
 		
-		return budget;
-		
-		
+		return budget;		
+	}
+	
+	
+	public HashMap <Integer, Double> getAllBudgets(String userNick){
+		if(null==userNick){
+			logger.error("invald userNick " + userNick);
+			return null;
+		}
+		return budgetDAO.getAllBudgets(userNick);
 	}
 	
 	public boolean createBudget(String userNick,double limit){
