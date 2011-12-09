@@ -43,6 +43,14 @@ Constants = {
 	thumbSuffix:"_sum.jpg"
 };
 
+Common = {
+	srcUrl : ""	,
+	logOut : function(){
+		Cookie.delCookie("userNick");
+		Cookie.delCookie("sessionKey");
+		window.location.reload();
+	}
+};
 function getdata(url, msg, callback){
     var xmlHttp;
     if(window.ActiveXObject){
@@ -107,7 +115,15 @@ function convertTime(datetime){
     return localTime;
 }
 
-function goAuthorize(){
+function strCut(str,len){
+	var tmpstr="";
+	if(str.length>len) tmpstr = str.substr(0,len);
+	else tmpstr=str;
+	return tmpstr;
+}
+
+function goAuthorize(src_url){
+	Cookie.addCookie("srcUrl",src_url,0.05);
 	var msg="";
 	getdata("authorize",msg,function(xmlHttp){
 		if(xmlHttp.readyState==4 && xmlHttp.status==200){

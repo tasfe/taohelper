@@ -7,11 +7,34 @@
 
 .upperpart_content{
 	position:absolute;
-	top: 130px;
-	left: 160px;
+	top: 127px;
+	left: 173px;
+	display:inline-block;
 	width:900px;	
 	height:240px;
 	overflow:hidden;
+	text-align:center;
+	vertical-align:middle;
+}
+
+.leftarrow{
+	position:absolute;
+	top: 227px;
+	left: 146px;
+	width:30px;
+	height:30px;
+	visibility:hidden;
+	opacity:.6;
+}
+
+.rightarrow{
+	position:absolute;
+	top: 227px;
+	left: 1070px;
+	width:30px;
+	height:30px;
+	visibility:hidden;
+	opacity:.6;
 }
 
 .chart_history{
@@ -19,7 +42,8 @@
 	top: 500px;
 	left: 165px;
 	width:900px;
-	
+	height:589px;
+	overflow:hidden;
 }
 
 .button_div{
@@ -41,6 +65,7 @@
 	border-bottom: 1px solid #CCE0FF;
 	background-color: #F2F2F2;
 	font-size:13px;
+	padding:3px 3px 10px 3px;
 }
 .title{
 	font-size:14px;
@@ -53,4 +78,91 @@
 	height: 22px;
 	width: 65px;
 	color: gray;
+}
+
+
+.tb-slide {
+	border: 1px solid #d8d8d8;
+}
+
+.tb-slide,.tb-slide li {
+	height: 170px;
+	overflow: hidden;
+	width: 490px;
+	font-size: 0;
+}
+
+.main-promo .loading-s .tb-slide-list li {
+	background:
+		url("http://img02.taobaocdn.com/tps/i2/T16WJqXaXeXXXXXXXX-32-32.gif")
+		no-repeat scroll 50% 50%;
+}
+
+.tb-slide-triggers {
+	bottom: 5px;
+	height: 18px;
+	padding-top: 2px;
+	position: absolute;
+	right: 5px;
+	z-index: 10;
+}
+
+.tb-slide-triggers li {
+	background-color: #fff;
+	opacity: .7;
+	color: #de7d4b;
+	height: 20px;
+	line-height: 20px;
+	margin-top: -2px;
+	width: 20px;
+	float: left;
+	text-align: center;
+	font-size: 13px;
+	margin-left: 3px;
+	-moz-border-radius: 20px;
+	-webkit-border-radius: 20px;
+	border-radius: 20px;
+	position: relative;
+	cursor: pointer;
+	overflow: visible;
+}
+
+.tb-slide-triggers li.ks-active {
+	font-weight: bold;
+	background-color: #f60;
+	filter: none;
+	opacity: 1;
+	color: #FFF;
+}
+.main-promo {
+	width: 100%;
+	height: 170px;
+	background-color: #EBF5FA;
+}
+
+.announce .hd .ks-active {
+	border-color: #D8D8D8;
+	position: relative;
+	height: 25px;
+	background: #FFF;
+}
+
+.expressway-box .hd .ks-active {
+	border-color: #D8D8D8;
+	position: relative;
+	height: 24px;
+	background: #FFF;
+}
+
+.category-sub-recom .hd .ks-active {
+	position: relative;
+	border-color: #D8D8D8;
+	border-bottom: 1px solid #FFF;
+	background: #FFF
+}
+
+
+.announce .hd .ks-active a,.expressway-box .hd .ks-active a,.category-sub-recom .hd .ks-active a
+	{
+	color: #3E3E3E;
 }
