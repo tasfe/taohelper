@@ -62,13 +62,17 @@ var pHistory={
 			if(xmlHttp.readyState == 4 && xmlHttp.status ==200){
 				var res = xmlHttp.responseText;
 				var jsonObj = myeval(res);
-				
+				var hascurrentmonth=false;
 				var moneyData = new Array();
-				for(var i=1;i<=12;i++){
+				for(var i in jsonObj){
 					if(jsonObj[i]){
+						if(i==(new Date().getMonth()+1)) hascurrentmonth=true;
 						moneyData.push([i,jsonObj[i]]);
+						
 					}
 				}
+				if(!hascurrentmonth) moneyData.push([new Date().getMonth()+1,0]);
+				
 				var myChart = new JSChart("th_chart_container", "line");
 				myChart.setDataArray(moneyData,'line_1');
 				myChart.setDataArray(pHistory.budgetData,'line_2');
