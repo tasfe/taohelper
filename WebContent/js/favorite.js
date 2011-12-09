@@ -38,7 +38,7 @@ var pFavorite={
 				
 				tmphtml += '<tr id="item'+tmpitem.numIid+'" class="order-bd last" onclick="pFavorite.drawChart('+i+')">'
 								+'<td class="baobei" colspan="2"><a target="_blank" hidefocus="true" title="查看宝贝详情" href="'+itemurl+'" class="pic s50"><img alt="查看宝贝详情" src="'+thumpicurl+'"></a>'
-									+'<span class="desc"><a class="baobei-name" target="_blank" href="#">'+tmpitem.title+'</a></span></td>'
+									+'<span class="desc"><a style="font-size:14px" target="_blank" href="'+itemurl+'">'+tmpitem.title+'</a></span></td>'
 //								+'<td class="spec">'+tmpitem.nick+'</td>'
 								+'<td><div class="spec"><span>'+tmpitem.nick+'</span></div></td>'
 								+'<td class="price">价格:'+tmpitem.price+'</td>'
