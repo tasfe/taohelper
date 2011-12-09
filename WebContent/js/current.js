@@ -4,7 +4,7 @@ var pCurrent={
 	
 	init:function(){
 		if(Cookie.getCookie("userNick")=="") {
-			goAuthorize();
+			goAuthorize("current.html");
 			return;
 		}
 		
@@ -43,7 +43,7 @@ var pCurrent={
 	getCurrentTrades:function(){
 		var sessionKey=Cookie.getCookie("sessionKey");
 		if(sessionKey==""){
-			goAuthorize();
+			goAuthorize("current.html");
 			return;
 		}
 		var msg="sessionKey="+sessionKey;

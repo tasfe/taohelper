@@ -4,7 +4,7 @@ var pRecom={
 	
 	init:function(){
 		if(Cookie.getCookie("userNick")=="") {
-			goAuthorize();
+			goAuthorize("recommend.html");
 			return;
 		}
 		pRecom.getRecommendProduct();

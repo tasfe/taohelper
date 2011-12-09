@@ -1,10 +1,11 @@
 
 var pHistory={	
 	curpage : 0, //the index of sub page. 0 means amount statistics, 1 means category analysis, 2 means limit set
+	budgetData : new Array(),
 	
 	init:function(){
 		if(Cookie.getCookie("userNick")=="") {
-			goAuthorize();
+			goAuthorize("history.html");
 			return;
 		}
 		
@@ -16,7 +17,7 @@ var pHistory={
 		
 		if(pHistory.curpage==0){//金额
 		
-			pHistory.goAmountStat();	
+			pHistory.getAllBudgets();	
 		}
 		else if(pHistory.curpage == 1){//类别
 			
@@ -29,6 +30,22 @@ var pHistory={
 		}
 	},
 	
+	getAllBudgets:function(){
+		var msg = "userNick="+Cookie.getCookie("userNick")+"&method=getAllBudgets";
+		getdata("budget",msg,function(xmlHttp){
+			if(xmlHttp.readyState == 4 && xmlHttp.status == 200){
+				var res = xmlHttp.responseText;
+				
+				var jsonObj = myeval(res);
+				for(var month in jsonObj){
+					if(month){
+						pHistory.budgetData.push([month,jsonObj[month]]);
+					}
+				}
+				pHistory.goAmountStat();
+			}
+		});
+	},
 	
 	//金额
 	goAmountStat:function(){
@@ -36,9 +53,10 @@ var pHistory={
 		$("Layer6").style.background="url('img/submenu_hover.jpg')";
 		$("Layer6").style.backgroundSize="100%,100%";
 		$("Layer6").style.backgroundRepeat="no-repeat center";
+		
 		var sessionKey=Cookie.getCookie("sessionKey");
 		if(sessionKey==""){
-			goAuthorize();
+			goAuthorize("history.html");
 			return;
 		}
 		var msg="sessionKey="+sessionKey;
@@ -51,11 +69,18 @@ var pHistory={
 				for(var i=1;i<=12;i++){
 					if(jsonObj[i]){
 						moneyData.push([i,jsonObj[i]]);
-					}	
+					}
 				}
 				var myChart = new JSChart("th_chart_container", "line");
-				myChart.setDataArray(moneyData);
+				myChart.setDataArray(moneyData,'line_1');
+				myChart.setDataArray(pHistory.budgetData,'line_2');
+				myChart.setLineColor('#FF0000', 'line_2');
 				myChart.setSize(840,550);
+				
+				myChart.setAxisPaddingLeft(70);
+				myChart.setAxisPaddingRight(70);
+				myChart.setAxisPaddingBottom(40);
+				
 				myChart.setTitle('每月消费金额统计');
 				myChart.setAxisNameX("月份");
 				myChart.setAxisNameY('消费金额');
@@ -70,7 +95,7 @@ var pHistory={
 		$("th_chart_container").innerHTML="Loading graph....";
 		var sessionKey=Cookie.getCookie("sessionKey");
 		if(sessionKey==""){
-			goAuthorize();
+			goAuthorize("history.html");
 			return;
 		}
 		var msg="sessionKey="+sessionKey;
@@ -83,13 +108,16 @@ var pHistory={
 				for(var cat in jsonObj){
 					if(jsonObj[cat]){
 						
-						catData.push([cat,jsonObj[cat]]);
+						catData.push([strCut(cat,8),jsonObj[cat]]);
 					}
 				}
 				
 				var myChart = new JSChart("th_chart_container", "bar");
 				myChart.setDataArray(catData);
 				myChart.setSize(840,550);
+				myChart.setAxisPaddingLeft(70);
+				myChart.setAxisPaddingRight(70);
+				myChart.setAxisPaddingBottom(40);
 				myChart.setTitle('消费类型统计');
 				myChart.setAxisNameX("类型");
 				myChart.setAxisNameY('消费金额');

@@ -2,10 +2,12 @@ var pFavorite={
 	curpage:0, // 0 means favorite products
 	productArr:new Array(),
 	priceTrendArr:new Array(),
+	favor_item_index:0,
+	favor_item_num:3,
 	
 	init:function(){
 		if(Cookie.getCookie("userNick")=="") {
-			goAuthorize();
+			goAuthorize("favorite.html");
 			return;
 		}
 		
@@ -14,14 +16,27 @@ var pFavorite={
 	},
 	drawPage:function(){
 		var tmphtmlUpper="";
+//		tmphtmlUpper = '<div class="leftarrow"><img src="img/leftarrow.png" style="width:30px;height:30px"></img></div>'
+//						+'<div class="rightarrow"><img src="img/rightarrow.png" style="width:30px;height:30px"></img></div>';
 		if(pFavorite.curpage==0){
-			tmphtmlUpper = '<table class="bought-table">';
-			for(var i=0;i<pFavorite.productArr.length;i++){
+//			pFavorite.favor_item_index=0;
+			tmphtmlUpper = pFavorite.drawFavorItemHtml();		
+		}
+		
+		
+		$("upperpart_display").innerHTML = tmphtmlUpper;
+		$("left_arrow").style.visibility="visible";
+		$("right_arrow").style.visibility="visible";
+	},
+	
+	drawFavorItemHtml:function(){
+		var tmphtml = '<table class="bought-table">';
+			for(var i=pFavorite.favor_item_index;i<pFavorite.productArr.length&&i<pFavorite.favor_item_index+pFavorite.favor_item_num;i++){
 				var tmpitem = pFavorite.productArr[i];
 				var itemurl = Constants.itemBaseUrl+tmpitem.numIid;
 				var thumpicurl = tmpitem.itemImgs[0].url+Constants.thumbSuffix;
 				
-				tmphtmlUpper += '<tr id="item'+tmpitem.numIid+'" class="order-bd last" onclick="pFavorite.drawChart('+i+')">'
+				tmphtml += '<tr id="item'+tmpitem.numIid+'" class="order-bd last" onclick="pFavorite.drawChart('+i+')">'
 								+'<td class="baobei" colspan="2"><a target="_blank" hidefocus="true" title="查看宝贝详情" href="'+itemurl+'" class="pic s50"><img alt="查看宝贝详情" src="'+thumpicurl+'"></a>'
 									+'<span class="desc"><a class="baobei-name" target="_blank" href="#">'+tmpitem.title+'</a></span></td>'
 //								+'<td class="spec">'+tmpitem.nick+'</td>'
@@ -30,13 +45,28 @@ var pFavorite={
 								+'<td class="amount" rowspan><span style="font-size:14px;font-style:bold;color:grey">上架时间</span><span>'+convertTimeFormat(tmpitem.created)+'</span></td>'
 								;					
 			}		
-			tmphtmlUpper += "</table>";
-			
-			
+		tmphtml += "</table>";
+		return tmphtml;
+	},
+	
+	goLeft:function(){
+		if(pFavorite.favor_item_index<3){
+			$("left_arrow").style.visibility="hidden";
 		}
-		
-		
-		$("upperpart_display").innerHTML = tmphtmlUpper;
+		else{
+			pFavorite.favor_item_index -= 3;
+			pFavorite.drawPage();
+		}
+	},
+	
+	goRight:function(){
+		if(pFavorite.favor_item_index+3>pFavorite.productArr.length){
+			$("right_arrow").style.visibility="hidden";
+		}
+		else{
+			pFavorite.favor_item_index += 3;
+			pFavorite.drawPage();
+		}
 	},
 	
 	/**
@@ -46,7 +76,7 @@ var pFavorite={
 	getFavoriteProduct:function(){
 		var sessionKey = Cookie.getCookie("sessionKey");
 		if(sessionKey==""){
-			goAuthorize();
+			goAuthorize("favorite.html");
 			return;
 		}
 		var msg="sessionKey="+sessionKey+"&nick="+Cookie.getCookie("userNick")+"&method=getFavorite";
@@ -70,18 +100,19 @@ var pFavorite={
 	},
 	
 	/**
-	 * 在后台的数据库中记录所收藏商品的价格，并且在preference中增加记录
+	 * 在后台的数据库中记录所收藏商品的价格
 	 */
 	 writeRecord:function(){
 	 	for(var i=0;i<pFavorite.productArr.length;i++){
 	 		var tmpitem = pFavorite.productArr[i];
 	 		var judge=(Cookie.getCookie("price"+tmpitem.numIid)=="");
-	 		if(true)
+	 		if(judge)
 	 		{
+	 			Cookie.addCookie("price"+tmpitem.numIid,1,365*24);
 	 			var msg="item_id="+tmpitem.numIid+"&price="+tmpitem.price+"&method=createFavoritePrice";
 	 			getdata("favoriteitem",msg,function(xmlHttp){
 	 				if(xmlHttp.readyState==4&&xmlHttp.status==200){
-	 					//Cookie.addCookie("price"+tmpitem.numIid,1,0);
+	 					
 	 				}
 	 			});
 	 		}	 		
@@ -96,7 +127,7 @@ var pFavorite={
 	  getPriceTrend:function(){
 	  	var sessionKey = Cookie.getCookie("sessionKey");
 		if(sessionKey==""){
-			goGetSessionKey();
+			goAuthorize("favorite.html");
 			return;
 		}
 		var msg="sessionKey="+sessionKey+"&userNick="+Cookie.getCookie("userNick");
@@ -123,12 +154,17 @@ var pFavorite={
 	  	if(pFavorite.priceTrendArr.length>0){	  		
 	  		
 	  		var hisprice = pFavorite.priceTrendArr[index].historyPrice;
+	  
 	  		var priceData = new Array();
 	  		for(var date in hisprice){
 	  			if(hisprice[date]){
 	  				priceData.push([date,hisprice[date]]);
 	  			}
-	  		}  			
+	  		}
+	  		if(priceData.length == 0){
+	  			 $("th_chart_container").innerHTML = "无该商品的价格信息!";
+	  			 return;
+	  		}
 			priceData.sort(function(a,b){if (a[0]==b[0]) return 0; return (a[0]>b[0])?1:-1;});
 			
 			var myChart = new JSChart("th_chart_container", "line");
@@ -146,8 +182,11 @@ var pFavorite={
 			myChart.draw();
 	  		
 	  	}
+	  	
 	  },
-	  
+	/**
+	 * 在preference中增加记录
+	 */
 	writePreference:function(){
 		for(var i=0;i<pFavorite.productArr.length;i++){
 	 		var tmpitem = pFavorite.productArr[i];
