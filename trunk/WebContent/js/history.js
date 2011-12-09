@@ -50,9 +50,7 @@ var pHistory={
 	//金额
 	goAmountStat:function(){
 		//Cookie.addCookie("sessionKey","4112931d4fc320a46ec32e06d6b0bcb1d59009AEHO2g6bb2903040751");
-		$("Layer6").style.background="url('img/submenu_hover.jpg')";
-		$("Layer6").style.backgroundSize="100%,100%";
-		$("Layer6").style.backgroundRepeat="no-repeat center";
+		pHistory.setSubmenuHover("Layer6");
 		
 		var sessionKey=Cookie.getCookie("sessionKey");
 		if(sessionKey==""){
@@ -92,6 +90,7 @@ var pHistory={
 	
 	//类别
 	goCategoryAnalysis:function(){
+		pHistory.setSubmenuHover("Layer7");
 		$("th_chart_container").innerHTML="Loading graph....";
 		var sessionKey=Cookie.getCookie("sessionKey");
 		if(sessionKey==""){
@@ -129,6 +128,7 @@ var pHistory={
 	
 	//预算	
 	goSetConsumptionLimit:function(){
+		pHistory.setSubmenuHover("Layer8");
 		var msg = "nick="+Cookie.getCookie("userNick")+"&method=getBudget";
 		getdata("budget",msg,function(xmlHttp){
 			if(xmlHttp.readyState == 4 && xmlHttp.status == 200){
@@ -154,6 +154,17 @@ var pHistory={
 		
 		
 		//$("th_chart_container").innerHTML = tmphtml;
+	},
+	
+	setSubmenuHover:function(id){
+		$("Layer6").style.backgroundImage="";
+		$("Layer7").style.backgroundImage="";
+		$("Layer8").style.backgroundImage="";
+		
+		$(id).style.backgroundImage="url('img/submenu1.png')";
+		$(id).style.backgroundSize="200px,70px";
+		$(id).style.backgroundRepeat="no-repeat center";
+		
 	},
 	
 	submitBudget:function(){
