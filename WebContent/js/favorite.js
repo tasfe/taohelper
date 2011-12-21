@@ -170,6 +170,18 @@ var pFavorite={
 			var myChart = new JSChart("th_chart_container", "line");
 			myChart.setDataArray(priceData);
 			
+			var changeflag=0;
+			
+			for (var i = 0; i < priceData.length; i++) {
+				myChart.setTooltip([priceData[i][0], "价格 "+priceData[i][1] + "元"])
+				changeflag += priceData[i][1]-priceData[0][1];
+			}
+			
+			if(changeflag == 0)
+			{
+				myChart.setIntervalStartY(0);
+			}
+			
 			myChart.setAxisPaddingLeft(100);
 			myChart.setAxisPaddingRight(120);
 			myChart.setAxisPaddingBottom(50);

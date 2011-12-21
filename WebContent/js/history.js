@@ -75,8 +75,18 @@ var pHistory={
 				
 				var myChart = new JSChart("th_chart_container", "line");
 				myChart.setDataArray(moneyData,'line_1');
-				myChart.setDataArray(pHistory.budgetData,'line_2');
-				myChart.setLineColor('#FF0000', 'line_2');
+				for (var i = 0; i < moneyData.length; i++) {
+						myChart.setTooltip([moneyData[i][0], "本月消费 "+moneyData[i][1] + "元","line_1"]);
+				}
+				if(pHistory.budgetData.length == moneyData.length){
+					myChart.setDataArray(pHistory.budgetData,'line_2');
+					myChart.setLineColor('#FF0000', 'line_2');
+					
+					for (var i = 0; i < moneyData.length; i++) {
+						myChart.setTooltip([pHistory.budgetData[i][0], "本月预算 "+pHistory.budgetData[i][1] + "元","line_2"]);
+					}
+				}
+				
 				myChart.setSize(840,550);
 				
 				myChart.setAxisPaddingLeft(70);

@@ -92,11 +92,11 @@
     <servlet-name>PriceTrend</servlet-name>
     <url-pattern>/pricetrend</url-pattern>
   </servlet-mapping>
-   <servlet-mapping>
+  <servlet-mapping>
     <servlet-name>Preference</servlet-name>
     <url-pattern>/preference</url-pattern>
   </servlet-mapping>
-    <servlet-mapping>
+  <servlet-mapping>
     <servlet-name>Recommend</servlet-name>
     <url-pattern>/recommend</url-pattern>
   </servlet-mapping>
