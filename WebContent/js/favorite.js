@@ -165,6 +165,10 @@ var pFavorite={
 	  			 $("th_chart_container").innerHTML = "无该商品的价格信息!";
 	  			 return;
 	  		}
+	  		else if(priceData.length == 1){
+	  			 $("th_chart_container").innerHTML = "该商品的价格信息不足,请一天之后查看!";
+	  			 return;
+	  		}
 			priceData.sort(function(a,b){if (a[0]==b[0]) return 0; return (a[0]>b[0])?1:-1;});
 			
 			var myChart = new JSChart("th_chart_container", "line");
