@@ -71,6 +71,10 @@ var pHistory={
 						
 					}
 				}
+				var recordMoneyData = new Array();
+				for(var i=0;i<moneyData.length;i++){
+					recordMoneyData.push([moneyData[i][0],moneyData[i][1]]);
+				}
 				if(!hascurrentmonth) moneyData.push([new Date().getMonth()+1,0]);
 				
 				var myChart = new JSChart("th_chart_container", "line");
@@ -78,14 +82,26 @@ var pHistory={
 				for (var i = 0; i < moneyData.length; i++) {
 						myChart.setTooltip([moneyData[i][0], "本月消费 "+moneyData[i][1] + "元","line_1"]);
 				}
-				if(pHistory.budgetData.length == moneyData.length){
-					myChart.setDataArray(pHistory.budgetData,'line_2');
-					myChart.setLineColor('#FF0000', 'line_2');
-					
-					for (var i = 0; i < moneyData.length; i++) {
-						myChart.setTooltip([pHistory.budgetData[i][0], "本月预算 "+pHistory.budgetData[i][1] + "元","line_2"]);
+				var tmpBudgetData = new Array();
+				//以moneydata为标准对budgetdata进行校正
+				for(var i=0;i<recordMoneyData.length;i++){
+					if(recordMoneyData[i][0]==pHistory.budgetData[i][0]){
+						tmpBudgetData.push(pHistory.budgetData[i]);
+						continue;
+					}
+					else
+					{
+						tmpBudgetData.push([recordMoneyData[i][0],pHistory.getBudgetByMonth(recordMoneyData[i][0])]);
 					}
 				}
+				
+				myChart.setDataArray(tmpBudgetData,'line_2');
+				myChart.setLineColor('#FF0000', 'line_2');
+				
+				for (var i = 0; i < tmpBudgetData.length; i++) {
+					if(tmpBudgetData[i][1]>0)myChart.setTooltip([tmpBudgetData[i][0], "本月预算 "+tmpBudgetData[i][1] + "元","line_2"]);
+					else myChart.setTooltip([tmpBudgetData[i][0], "本月预算尚未设置 ","line_2"]);
+				}			
 				
 				myChart.setSize(840,550);
 				
@@ -100,6 +116,14 @@ var pHistory={
 			}
 		});
 		
+	},
+	
+	//
+	getBudgetByMonth:function(month){
+		for(var i=0;i<pHistory.budgetData.length;i++){
+			if(pHistory.budgetData[i][0]==month) return pHistory.budgetData[i][1];
+		}
+		return 0;
 	},
 	
 	//类别
@@ -128,6 +152,7 @@ var pHistory={
 				var myChart = new JSChart("th_chart_container", "bar");
 				myChart.setDataArray(catData);
 				myChart.setSize(840,550);
+				myChart.setAxisWidth(1);
 				myChart.setAxisPaddingLeft(70);
 				myChart.setAxisPaddingRight(70);
 				myChart.setAxisPaddingBottom(40);
