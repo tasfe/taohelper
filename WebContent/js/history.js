@@ -80,19 +80,14 @@ var pHistory={
 				var myChart = new JSChart("th_chart_container", "line");
 				myChart.setDataArray(moneyData,'line_1');
 				for (var i = 0; i < moneyData.length; i++) {
-						myChart.setTooltip([moneyData[i][0], "本月消费 "+moneyData[i][1] + "元","line_1"]);
+						myChart.setTooltip([recordMoneyData[i][0], "本月消费 "+moneyData[i][1] + "元","line_1"]);
 				}
 				var tmpBudgetData = new Array();
 				//以moneydata为标准对budgetdata进行校正
 				for(var i=0;i<recordMoneyData.length;i++){
-					if(recordMoneyData[i][0]==pHistory.budgetData[i][0]){
-						tmpBudgetData.push(pHistory.budgetData[i]);
-						continue;
-					}
-					else
-					{
-						tmpBudgetData.push([recordMoneyData[i][0],pHistory.getBudgetByMonth(recordMoneyData[i][0])]);
-					}
+					
+					tmpBudgetData.push([recordMoneyData[i][0],pHistory.getBudgetByMonth(recordMoneyData[i][0])]);
+					
 				}
 				
 				myChart.setDataArray(tmpBudgetData,'line_2');
@@ -100,7 +95,7 @@ var pHistory={
 				
 				for (var i = 0; i < tmpBudgetData.length; i++) {
 					if(tmpBudgetData[i][1]>0)myChart.setTooltip([tmpBudgetData[i][0], "本月预算 "+tmpBudgetData[i][1] + "元","line_2"]);
-					else myChart.setTooltip([tmpBudgetData[i][0], "本月预算尚未设置 ","line_2"]);
+					else myChart.setTooltip([tmpBudgetData[i][0], "您本月没有设置过预算 ","line_2"]);
 				}			
 				
 				myChart.setSize(840,550);
@@ -151,6 +146,7 @@ var pHistory={
 				
 				var myChart = new JSChart("th_chart_container", "bar");
 				myChart.setDataArray(catData);
+				if(catData.length<=2) myChart.setBarSpacingRatio(80);
 				myChart.setSize(840,550);
 				myChart.setAxisWidth(1);
 				myChart.setAxisPaddingLeft(70);
